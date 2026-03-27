@@ -15,26 +15,21 @@ input[type=number]{-moz-appearance:textfield}
 select option{background:#0f172a;color:#e5e7eb}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
 .container{max-width:520px;margin:0 auto;padding:16px 16px 40px}
 .hdr{text-align:center;padding:20px 16px 16px;margin-bottom:16px;background:radial-gradient(ellipse at top,rgba(250,204,21,0.08) 0%,rgba(15,23,42,0.95) 60%);border-radius:20px;border:1px solid rgba(148,163,184,0.2);position:relative;overflow:hidden}
 .hdr-glow{position:absolute;top:-60px;left:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(250,204,21,0.12) 0%,transparent 70%);pointer-events:none}
 .logo{font-size:28px;font-weight:800;letter-spacing:0.08em;background:linear-gradient(120deg,#fefce8 0%,#facc15 50%,#f97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2px}
 .hdr-sub{font-size:10px;letter-spacing:0.2em;color:#6b7280;text-transform:uppercase}
-
 .timer-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:rgba(15,23,42,0.8);border-radius:14px;border:1px solid rgba(148,163,184,0.15);margin-bottom:16px}
 .timer-label{font-size:10px;color:#6b7280;letter-spacing:0.15em;text-transform:uppercase}
 .timer-val{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:0.05em}
-
 .step-row{display:flex;gap:6px;justify-content:center;margin-bottom:20px}
 .step-pill{padding:6px 14px;border-radius:999px;font-size:11px;font-weight:600;transition:all 0.2s}
 .step-pill.future{border:1px solid rgba(148,163,184,0.25);background:rgba(15,23,42,0.6);color:#4b5563}
 .step-pill.active{border:1px solid rgba(250,204,21,0.6);background:rgba(250,204,21,0.1);color:#fef9c3}
 .step-pill.done{border:1px solid #22c55e;background:rgba(34,197,94,0.15);color:#86efac}
-
 .card{background:rgba(15,23,42,0.9);border:1px solid rgba(148,163,184,0.2);border-radius:18px;padding:20px 18px;margin-bottom:14px}
 .card-title{font-size:11px;font-weight:700;color:#6b7280;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px}
-
 .input-wrap{margin-bottom:14px}
 .form-label{display:block;font-size:11px;font-weight:600;color:#6b7280;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:5px}
 .hint{font-weight:400;font-size:10px;color:#4b5563;text-transform:none;letter-spacing:0}
@@ -47,13 +42,11 @@ select option{background:#0f172a;color:#e5e7eb}
 .form-select:focus{border-color:#facc15;box-shadow:0 0 0 2px rgba(250,204,21,0.2)}
 .input-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .input-row-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
-
 .v-card{background:linear-gradient(135deg,rgba(250,204,21,0.08) 0%,rgba(15,23,42,0.95) 100%);border:1px solid rgba(250,204,21,0.25);border-radius:16px;padding:16px 18px;margin-top:14px;margin-bottom:10px;animation:fadeUp 0.3s ease-out}
 .v-title{font-size:20px;font-weight:800;color:#fefce8;letter-spacing:0.02em}
 .v-sub{font-size:12px;color:#9ca3af;margin-top:2px;font-family:monospace}
 .v-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .v-chip{padding:4px 10px;border-radius:999px;background:rgba(250,204,21,0.1);border:1px solid rgba(250,204,21,0.2);font-size:10px;font-weight:600;color:#fde68a;letter-spacing:0.06em;text-transform:uppercase}
-
 .deal-btns{display:flex;gap:10px}
 .deal-btn{flex:1;padding:22px 10px;border:none;border-radius:18px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 12px 30px rgba(0,0,0,0.45)}
 .deal-btn:active{transform:scale(0.97)}
@@ -63,18 +56,18 @@ select option{background:#0f172a;color:#e5e7eb}
 .deal-btn-icon{font-size:28px}
 .deal-btn-label{font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
 .deal-btn-sub{font-size:10px;opacity:0.7;font-weight:500}
-
 .nav-row{display:flex;gap:10px;margin-top:20px}
 .nav-btn{flex:1;padding:14px 16px;border-radius:14px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.15s;border:none;text-align:center}
 .nav-btn.back{background:rgba(15,23,42,0.8);color:#9ca3af;border:1px solid rgba(148,163,184,0.3)}
 .nav-btn.next{background:linear-gradient(120deg,#facc15 0%,#f97316 100%);color:#111}
 .nav-btn.next:disabled{opacity:0.4;cursor:not-allowed}
-
 .big-btn{width:100%;padding:18px 20px;border:none;border-radius:16px;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform 0.15s;box-shadow:0 10px 30px rgba(0,0,0,0.4);letter-spacing:0.04em}
 .big-btn:active{transform:scale(0.98)}
 .big-btn.primary{background:linear-gradient(120deg,#facc15 0%,#f97316 100%);color:#111}
+.big-btn.docusign{background:linear-gradient(120deg,#4f46e5 0%,#7c3aed 100%);color:#fff;margin-top:10px}
+.big-btn.print-btn{background:rgba(15,23,42,0.8);color:#e5e7eb;border:1px solid rgba(148,163,184,0.3);margin-top:10px}
 .big-btn.secondary{background:rgba(15,23,42,0.8);color:#9ca3af;border:1px solid rgba(148,163,184,0.2);margin-top:10px}
-
+.big-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
 .summ-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(31,41,55,0.6)}
 .summ-row:last-child{border-bottom:none}
 .summ-label{font-size:12px;color:#6b7280}
@@ -82,13 +75,13 @@ select option{background:#0f172a;color:#e5e7eb}
 .summ-total{display:flex;justify-content:space-between;padding:12px 0 4px;margin-top:4px}
 .summ-total-label{font-size:14px;font-weight:700;color:#facc15;letter-spacing:0.06em;text-transform:uppercase}
 .summ-total-val{font-size:20px;font-weight:800;color:#fefce8}
-
-.doc-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(31,41,55,0.4)}
+.doc-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(31,41,55,0.4);cursor:pointer;transition:background 0.15s}
 .doc-row:last-child{border-bottom:none}
+.doc-row:hover{background:rgba(250,204,21,0.04);border-radius:8px;padding-left:6px;margin-left:-6px}
 .doc-check{width:20px;height:20px;border-radius:6px;background:rgba(34,197,94,0.2);border:1px solid #22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#22c55e;font-weight:700;flex-shrink:0}
 .doc-name{font-size:13px;font-weight:500;color:#e5e7eb}
 .doc-form{font-size:10px;color:#6b7280;margin-left:auto;flex-shrink:0}
-
+.doc-preview-btn{font-size:10px;color:#facc15;font-weight:600;margin-left:8px;flex-shrink:0}
 .county-badge{margin-bottom:14px;padding:6px 12px;border-radius:10px;background:rgba(250,204,21,0.08);border:1px solid rgba(250,204,21,0.15);font-size:11px;color:#fde68a}
 .vin-loading{margin-top:8px;font-size:12px;color:#facc15;display:flex;align-items:center;gap:6px}
 .vin-spinner{display:inline-block;width:12px;height:12px;border:2px solid #facc15;border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite}
@@ -98,6 +91,8 @@ select option{background:#0f172a;color:#e5e7eb}
 .divider{height:1px;background:rgba(148,163,184,0.15);margin:8px 0}
 .info-note{padding:8px 12px;border-radius:10px;font-size:11px}
 .info-note.blue{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#93c5fd}
+.info-note.green{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#86efac}
+.info-note.red{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#fca5a5}
 .footer-text{text-align:center;margin-top:16px;font-size:10px;color:#374151}
 .header-mini{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .header-mini-logo{font-size:18px;font-weight:800;background:linear-gradient(120deg,#fefce8,#facc15);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -111,111 +106,63 @@ select option{background:#0f172a;color:#e5e7eb}
 .dmv-section{margin-top:10px;padding-top:10px;border-top:1px solid rgba(148,163,184,0.15)}
 .dmv-label{font-size:10px;font-weight:600;color:#4b5563;letter-spacing:0.12em;margin-bottom:6px;text-transform:uppercase}
 .hidden{display:none!important}
+.status-bar{padding:12px 16px;border-radius:12px;margin-bottom:12px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+.status-bar.sending{background:rgba(79,70,229,0.15);border:1px solid rgba(79,70,229,0.3);color:#a5b4fc}
+.status-bar.success{background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#86efac}
+.status-bar.error{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#fca5a5}
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- ═══════════════════════════════════════ -->
-  <!-- SCREEN: HOME                           -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- HOME -->
   <div id="screen-home">
-    <div class="hdr">
-      <div class="hdr-glow"></div>
-      <div style="position:relative;z-index:1">
-        <div class="logo">NUVO</div>
-        <div class="hdr-sub">Deal Engine · Dealer #00104</div>
-        <div style="margin-top:12px;font-size:11px;color:#4b5563">
-          Close a deal in under <span style="color:#facc15;font-weight:700">3 minutes</span>
-        </div>
-      </div>
-    </div>
-    <div class="card" style="padding:14px 14px 18px">
-      <div class="card-title">Start a Deal</div>
+    <div class="hdr"><div class="hdr-glow"></div><div style="position:relative;z-index:1">
+      <div class="logo">NUVO</div><div class="hdr-sub">Deal Engine · Dealer #00104</div>
+      <div style="margin-top:12px;font-size:11px;color:#4b5563">Close a deal in under <span style="color:#facc15;font-weight:700">3 minutes</span></div>
+    </div></div>
+    <div class="card" style="padding:14px 14px 18px"><div class="card-title">Start a Deal</div>
       <div class="deal-btns">
-        <button class="deal-btn sell" onclick="startDeal('sell')">
-          <div class="deal-btn-icon">🏷️</div>
-          <div class="deal-btn-label" style="color:#f0fdf4">Sell</div>
-          <div class="deal-btn-sub" style="color:#bbf7d0">Retail / Wholesale</div>
-        </button>
-        <button class="deal-btn buy" onclick="startDeal('buy')">
-          <div class="deal-btn-icon">🔑</div>
-          <div class="deal-btn-label" style="color:#eff6ff">Buy</div>
-          <div class="deal-btn-sub" style="color:#bfdbfe">Acquisition</div>
-        </button>
-        <button class="deal-btn consign" onclick="startDeal('consign')">
-          <div class="deal-btn-icon">🤝</div>
-          <div class="deal-btn-label" style="color:#faf5ff">Consign</div>
-          <div class="deal-btn-sub" style="color:#e9d5ff">Net to Seller</div>
-        </button>
+        <button class="deal-btn sell" onclick="startDeal('sell')"><div class="deal-btn-icon">🏷️</div><div class="deal-btn-label" style="color:#f0fdf4">Sell</div><div class="deal-btn-sub" style="color:#bbf7d0">Retail / Wholesale</div></button>
+        <button class="deal-btn buy" onclick="startDeal('buy')"><div class="deal-btn-icon">🔑</div><div class="deal-btn-label" style="color:#eff6ff">Buy</div><div class="deal-btn-sub" style="color:#bfdbfe">Acquisition</div></button>
+        <button class="deal-btn consign" onclick="startDeal('consign')"><div class="deal-btn-icon">🤝</div><div class="deal-btn-label" style="color:#faf5ff">Consign</div><div class="deal-btn-sub" style="color:#e9d5ff">Net to Seller</div></button>
       </div>
     </div>
     <div class="footer-text">NuVo Trade Co. Inc. · 1560 Superior Ave Ste B3, Costa Mesa, CA 92627</div>
   </div>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- SCREEN: ACTIVE DEAL                    -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- DEAL SCREEN -->
   <div id="screen-deal" class="hidden">
-
-    <!-- Mini header -->
     <div class="header-mini">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="header-mini-logo">NUVO</div>
-        <div id="deal-type-badge" class="deal-type-pill"></div>
-      </div>
+      <div style="display:flex;align-items:center;gap:10px"><div class="header-mini-logo">NUVO</div><div id="deal-type-badge" class="deal-type-pill"></div></div>
       <button class="close-btn" onclick="resetDeal()">✕</button>
     </div>
-
-    <!-- Timer -->
     <div class="timer-bar">
       <div><div class="timer-label">Deal Timer</div><div id="timer-display" class="timer-val" style="color:#22c55e">0:00</div></div>
       <div style="text-align:right"><div class="timer-label">Target</div><div style="font-size:14px;font-weight:600;color:#374151">3:00</div></div>
     </div>
-
-    <!-- Step pills -->
     <div id="step-pills" class="step-row"></div>
 
-    <!-- ═══ STEP 1: VEHICLE ═══ -->
+    <!-- STEP 1 -->
     <div id="step-1" class="hidden">
-      <div class="card">
-        <div class="card-title">Vehicle Identification</div>
-        <div class="input-wrap">
-          <label class="form-label">VIN <span class="hint">17 characters</span></label>
+      <div class="card"><div class="card-title">Vehicle Identification</div>
+        <div class="input-wrap"><label class="form-label">VIN <span class="hint">17 characters</span></label>
           <input id="vin-input" class="form-input mono" maxlength="17" placeholder="e.g. WP0AB2A99JS123065" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false">
-          <div id="vin-status"></div>
-        </div>
+          <div id="vin-status"></div></div>
         <div id="vehicle-card"></div>
-        <div class="input-wrap">
-          <label class="form-label">Odometer (Miles)</label>
-          <input id="miles-input" class="form-input" type="number" placeholder="e.g. 23919" inputmode="numeric">
-        </div>
+        <div class="input-wrap"><label class="form-label">Odometer (Miles)</label>
+          <input id="miles-input" class="form-input" type="number" placeholder="e.g. 23919" inputmode="numeric"></div>
       </div>
-      <div class="nav-row">
-        <button class="nav-btn back" onclick="resetDeal()">Cancel</button>
-        <button id="nav-1-next" class="nav-btn next" disabled onclick="goStep(2)">Next → Buyer</button>
-      </div>
+      <div class="nav-row"><button class="nav-btn back" onclick="resetDeal()">Cancel</button><button id="nav-1-next" class="nav-btn next" disabled onclick="goStep(2)">Next → Buyer</button></div>
     </div>
 
-    <!-- ═══ STEP 2: PARTY INFO ═══ -->
+    <!-- STEP 2 -->
     <div id="step-2" class="hidden">
-      <div class="card">
-        <div id="step2-title" class="card-title">Buyer Information</div>
-        <div class="input-wrap">
-          <label id="party-label" class="form-label">Buyer Full Name</label>
-          <input id="buyer-name" class="form-input" placeholder="FIRST MIDDLE LAST" autocomplete="off" autocapitalize="characters">
-        </div>
-        <div id="cobuyer-section">
-          <button class="cobuyer-toggle" onclick="toggleCobuyer()">+ Add Co-Buyer</button>
-          <div id="cobuyer-field" class="hidden" style="margin-top:8px">
-            <input id="buyer-cobuyer" class="form-input" placeholder="CO-BUYER FULL NAME" autocomplete="off" autocapitalize="characters">
-          </div>
-        </div>
+      <div class="card"><div id="step2-title" class="card-title">Buyer Information</div>
+        <div class="input-wrap"><label id="party-label" class="form-label">Buyer Full Name</label><input id="buyer-name" class="form-input" placeholder="FIRST MIDDLE LAST" autocomplete="off" autocapitalize="characters"></div>
+        <div id="cobuyer-section"><button class="cobuyer-toggle" onclick="toggleCobuyer()">+ Add Co-Buyer</button><div id="cobuyer-field" class="hidden" style="margin-top:8px"><input id="buyer-cobuyer" class="form-input" placeholder="CO-BUYER FULL NAME" autocomplete="off" autocapitalize="characters"></div></div>
         <div style="margin-bottom:14px"></div>
-        <div class="input-wrap">
-          <label class="form-label">Street Address</label>
-          <input id="buyer-address" class="form-input" placeholder="12345 ELM ST" autocomplete="off" autocapitalize="characters">
-        </div>
+        <div class="input-wrap"><label class="form-label">Street Address</label><input id="buyer-address" class="form-input" placeholder="12345 ELM ST" autocomplete="off" autocapitalize="characters"></div>
         <div class="input-row-3">
           <div class="input-wrap"><label class="form-label">City</label><input id="buyer-city" class="form-input" placeholder="COSTA MESA" autocomplete="off" autocapitalize="characters"></div>
           <div class="input-wrap"><label class="form-label">State</label><input id="buyer-state" class="form-input" value="CA" maxlength="2" autocomplete="off" autocapitalize="characters"></div>
@@ -226,353 +173,476 @@ select option{background:#0f172a;color:#e5e7eb}
           <div class="input-wrap"><label class="form-label">Phone</label><input id="buyer-phone" class="form-input" placeholder="(949) 888-8888" type="tel" autocomplete="off"></div>
           <div class="input-wrap"><label class="form-label">Email</label><input id="buyer-email" class="form-input" placeholder="buyer@email.com" type="email" autocomplete="off"></div>
         </div>
-        <div class="input-wrap">
-          <label class="form-label">Driver License # <span class="hint">optional</span></label>
-          <input id="buyer-dl" class="form-input" placeholder="D1234567" autocomplete="off" autocapitalize="characters">
-        </div>
+        <div class="input-wrap"><label class="form-label">Driver License # <span class="hint">optional</span></label><input id="buyer-dl" class="form-input" placeholder="D1234567" autocomplete="off" autocapitalize="characters"></div>
       </div>
-      <div class="nav-row">
-        <button class="nav-btn back" onclick="goStep(1)">← Back</button>
-        <button id="nav-2-next" class="nav-btn next" disabled onclick="goStep(3)">Next → Numbers</button>
-      </div>
+      <div class="nav-row"><button class="nav-btn back" onclick="goStep(1)">← Back</button><button id="nav-2-next" class="nav-btn next" disabled onclick="goStep(3)">Next → Numbers</button></div>
     </div>
 
-    <!-- ═══ STEP 3: NUMBERS ═══ -->
+    <!-- STEP 3 -->
     <div id="step-3" class="hidden">
       <div id="vehicle-mini" class="card hidden" style="padding:12px 16px"></div>
-      <div class="card">
-        <div class="card-title">Deal Numbers</div>
-        <div class="input-wrap">
-          <label class="form-label">Selling Price</label>
-          <div style="position:relative"><span class="price-symbol">$</span>
-            <input id="sale-price" class="form-input price" type="number" placeholder="0.00" inputmode="decimal">
-          </div>
-        </div>
+      <div class="card"><div class="card-title">Deal Numbers</div>
+        <div class="input-wrap"><label class="form-label">Selling Price</label><div style="position:relative"><span class="price-symbol">$</span><input id="sale-price" class="form-input price" type="number" placeholder="0.00" inputmode="decimal"></div></div>
         <div class="input-row">
-          <div class="input-wrap"><label class="form-label">Tax County</label>
-            <select id="tax-county" class="form-select"></select></div>
-          <div class="input-wrap"><label class="form-label">Doc Fee</label>
-            <input class="form-input readonly" value="$95.00" readonly></div>
+          <div class="input-wrap"><label class="form-label">Tax County</label><select id="tax-county" class="form-select"></select></div>
+          <div class="input-wrap"><label class="form-label">Doc Fee</label><input class="form-input readonly" value="$95.00" readonly></div>
         </div>
       </div>
       <div id="fee-breakdown" class="card hidden"></div>
-      <div class="nav-row">
-        <button class="nav-btn back" onclick="goStep(2)">← Back</button>
-        <button id="nav-3-next" class="nav-btn next" disabled onclick="completeDeal()">Generate Packet →</button>
-      </div>
+      <div class="nav-row"><button class="nav-btn back" onclick="goStep(2)">← Back</button><button id="nav-3-next" class="nav-btn next" disabled onclick="completeDeal()">Generate Packet →</button></div>
     </div>
 
-    <!-- ═══ STEP 4: COMPLETE ═══ -->
+    <!-- STEP 4 -->
     <div id="step-4" class="hidden">
       <div id="completion-banner" class="completion-banner fast"></div>
       <div id="deal-recap" class="card recap-card"></div>
       <div id="doc-packet" class="card"></div>
-      <button class="big-btn primary" onclick="alert('PDF generation → DocuSign routing coming in Phase 2')">📄 Generate PDF Packet</button>
+      <div id="docusign-status"></div>
+      <button class="big-btn primary" onclick="previewPacket()">📄 Preview Full Packet</button>
+      <button class="big-btn docusign" id="btn-docusign" onclick="sendDocuSign()">✍️ Send via DocuSign</button>
+      <button class="big-btn print-btn" onclick="printPacket()">🖨️ Print Packet</button>
       <button class="big-btn secondary" onclick="resetDeal()">Start New Deal</button>
       <div class="footer-text" style="margin-top:16px">* DMV fees are estimated · NuVo Trade Co. Inc. · Dealer #00104</div>
     </div>
-
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════
-// NUVO DEAL ENGINE v1.1 — No-flicker build
-// ═══════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// NUVO DEAL ENGINE v2.0
+// NuVo Trade Co. Inc. | Dealer #00104
+// Full packet generation + DocuSign integration
+// ═══════════════════════════════════════════════════
 
-const DEALER = { name:"NuVo Trade Co. Inc.", address:"1560 Superior Ave Ste B3", city:"Costa Mesa", state:"CA", zip:"92627", phone:"(949) 887-1323", dealer_no:"00104", seller_permit:"249963776", doc_fee:95, smog_fee:50 };
+const DEALER={name:"NuVo Trade Co. Inc.",address:"1560 Superior Ave Ste B3",city:"Costa Mesa",state:"CA",zip:"92627",phone:"(949) 887-1323",fax:"(949) 610-7808",email:"support@nuvotrade.com",dealer_no:"00104",seller_permit:"249963776",doc_fee:95,smog_fee:50};
+const DOCUSIGN_WORKER="https://nuvo-docusign.yulgutierrez.workers.dev";
+const CA_TAX={"Los Angeles":0.095,"Orange":0.0775,"San Diego":0.0775,"San Bernardino":0.0775,"Riverside":0.0775,"Ventura":0.0725,"Sacramento":0.0875,"San Francisco":0.08625,"Santa Clara":0.09125,"Alameda":0.1025,"Kern":0.0825,"Fresno":0.08475,"San Joaquin":0.09,"Contra Costa":0.0925,"Imperial":0.0875,"Other":0.0775};
+const ZIP_MAP={"900":"Los Angeles","901":"Los Angeles","902":"Los Angeles","903":"Los Angeles","904":"Los Angeles","905":"Los Angeles","906":"Los Angeles","907":"Los Angeles","908":"Los Angeles","910":"Los Angeles","911":"Los Angeles","912":"Los Angeles","913":"Los Angeles","914":"Los Angeles","915":"Los Angeles","916":"Los Angeles","917":"Los Angeles","918":"Los Angeles","920":"San Diego","921":"San Diego","922":"San Bernardino","923":"San Bernardino","924":"San Bernardino","925":"San Bernardino","926":"Orange","927":"Orange","928":"Orange","930":"Ventura","931":"Ventura","935":"San Joaquin","936":"Fresno","940":"San Francisco","941":"San Francisco","942":"Sacramento","943":"Sacramento","944":"San Francisco","945":"Alameda","946":"Alameda","947":"Alameda","950":"Santa Clara","951":"Riverside"};
 
-const CA_TAX = {"Los Angeles":0.095,"Orange":0.0775,"San Diego":0.0775,"San Bernardino":0.0775,"Riverside":0.0775,"Ventura":0.0725,"Sacramento":0.0875,"San Francisco":0.08625,"Santa Clara":0.09125,"Alameda":0.1025,"Kern":0.0825,"Fresno":0.08475,"San Joaquin":0.09,"Contra Costa":0.0925,"Imperial":0.0875,"Other":0.0775};
+let D={step:0,type:null,start:null,elapsed:0,done:false,vehicle:null,showCobuyer:false,county:"Orange",dealCalc:null};
+let timer=null;
+const $=id=>document.getElementById(id);
+const fmt=n=>"$"+Number(n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const show=(el,v)=>{if(typeof el==='string')el=$(el);el.classList.toggle('hidden',!v)};
+const today=()=>{const d=new Date();return String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+'/'+d.getFullYear()};
 
-const ZIP_MAP = {"900":"Los Angeles","901":"Los Angeles","902":"Los Angeles","903":"Los Angeles","904":"Los Angeles","905":"Los Angeles","906":"Los Angeles","907":"Los Angeles","908":"Los Angeles","910":"Los Angeles","911":"Los Angeles","912":"Los Angeles","913":"Los Angeles","914":"Los Angeles","915":"Los Angeles","916":"Los Angeles","917":"Los Angeles","918":"Los Angeles","920":"San Diego","921":"San Diego","922":"San Bernardino","923":"San Bernardino","924":"San Bernardino","925":"San Bernardino","926":"Orange","927":"Orange","928":"Orange","930":"Ventura","931":"Ventura","935":"San Joaquin","936":"Fresno","940":"San Francisco","941":"San Francisco","942":"Sacramento","943":"Sacramento","944":"San Francisco","945":"Alameda","946":"Alameda","947":"Alameda","950":"Santa Clara","951":"Riverside"};
-
-let D = { step:0, type:null, start:null, elapsed:0, done:false, vehicle:null, showCobuyer:false, county:"Orange" };
-let timer = null;
-
-const $ = id => document.getElementById(id);
-const fmt = n => "$" + Number(n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
-const show = (el,v) => { if(typeof el==='string') el=$(el); el.classList.toggle('hidden',!v); };
-
-// ═══ DMV + DEAL CALC ═══
-function calcDMV(p){
-  const vlf=Math.round(p*0.0065*100)/100;
-  let tif=p<=4999?0:p<=24999?25:p<=34999?50:p<=59999?100:175;
-  const t=Math.round((vlf+65+15+20+30+tif)*100)/100;
-  return {vlf,baseReg:65,titleTransfer:15,smogAbatement:20,chpFee:30,tif,total:t};
-}
-
-function calcDeal(price,county){
-  const p=parseFloat(price)||0, rate=CA_TAX[county]||0.0775;
-  const tax=Math.round(p*rate*100)/100, dmv=calcDMV(p);
-  const sub=Math.round((p+DEALER.doc_fee+DEALER.smog_fee+tax)*100)/100;
-  return {salePrice:p,docFee:DEALER.doc_fee,smogFee:DEALER.smog_fee,salesTax:tax,taxRate:rate,dmvFees:dmv,subtotal:sub,totalDue:Math.round((sub+dmv.total)*100)/100};
-}
+// ═══ CALC ═══
+function calcDMV(p){const vlf=Math.round(p*0.0065*100)/100;let tif=p<=4999?0:p<=24999?25:p<=34999?50:p<=59999?100:175;return{vlf,baseReg:65,titleTransfer:15,smogAbatement:20,chpFee:30,tif,total:Math.round((vlf+65+15+20+30+tif)*100)/100}}
+function calcDeal(price,county){const p=parseFloat(price)||0,rate=CA_TAX[county]||0.0775,tax=Math.round(p*rate*100)/100,dmv=calcDMV(p),sub=Math.round((p+DEALER.doc_fee+DEALER.smog_fee+tax)*100)/100;return{salePrice:p,docFee:DEALER.doc_fee,smogFee:DEALER.smog_fee,salesTax:tax,taxRate:rate,dmvFees:dmv,subtotal:sub,totalDue:Math.round((sub+dmv.total)*100)/100}}
 
 function getDocList(type,price){
   const d=[];
-  if(type==="sell"){
-    d.push({n:"eSign Consent",f:"E-SIGN Act"},{n:"Deal Summary / Buyer's Order",f:"DealSummary"},{n:"Retail Installment Contract",f:"LAW 553-CA-ARB"},{n:"REG 262 Transfer & Bill of Sale",f:"REG 262"},{n:"FTC Buyers Guide (As-Is)",f:"Buyers Guide"},{n:"Due Bill",f:"DC-DB01"},{n:"Agreement to Furnish Insurance",f:"DC-ATF01"});
-    if(price<40000) d.push({n:"Contract Cancellation Option",f:"CCOA"});
-    d.push({n:"Privacy Notice",f:"PVN001"},{n:"REG 51 Report of Sale",f:"REG 51"});
-  } else if(type==="buy"){
-    d.push({n:"Purchase Agreement",f:"Custom"},{n:"REG 262 Transfer & Bill of Sale",f:"REG 262"},{n:"Odometer Disclosure",f:"REG 262 §3"},{n:"Power of Attorney",f:"REG 262 §5"});
-  } else {
-    d.push({n:"Consignment Agreement",f:"Custom"},{n:"eSign Consent",f:"E-SIGN Act"},{n:"Privacy Notice",f:"PVN001"});
-  }
+  if(type==="sell"){d.push({n:"eSign Consent",f:"E-SIGN Act"},{n:"Deal Summary / Buyer's Order",f:"DealSummary"},{n:"Retail Installment Contract",f:"LAW 553-CA-ARB"},{n:"REG 262 Transfer & Bill of Sale",f:"REG 262"},{n:"FTC Buyers Guide (As-Is)",f:"Buyers Guide"},{n:"Due Bill",f:"DC-DB01"},{n:"Agreement to Furnish Insurance",f:"DC-ATF01"});if(price<40000)d.push({n:"Contract Cancellation Option",f:"CCOA"});d.push({n:"Privacy Notice",f:"PVN001"},{n:"REG 51 Report of Sale",f:"REG 51"})}
+  else if(type==="buy"){d.push({n:"Purchase Agreement",f:"Custom"},{n:"REG 262 Transfer & Bill of Sale",f:"REG 262"},{n:"Odometer Disclosure",f:"REG 262 §3"},{n:"Power of Attorney",f:"REG 262 §5"})}
+  else{d.push({n:"Consignment Agreement",f:"Custom"},{n:"eSign Consent",f:"E-SIGN Act"},{n:"Privacy Notice",f:"PVN001"})}
   return d;
 }
 
-// ═══ TIMER ═══
-function updateTimer(){
-  if(!D.start||D.done) return;
-  D.elapsed = Math.floor((Date.now()-D.start)/1000);
-  const m=Math.floor(D.elapsed/60), s=D.elapsed%60;
-  const display = m+":"+String(s).padStart(2,'0');
-  const color = D.elapsed<120?"#22c55e":D.elapsed<180?"#facc15":"#ef4444";
-  const el=$('timer-display');
-  if(el){el.textContent=display;el.style.color=color;}
+// ═══ GATHER DEAL DATA ═══
+function getDealData(){
+  const v=D.vehicle, dc=D.dealCalc;
+  return {
+    date: today(), vehicle: v, miles: $('miles-input').value,
+    buyer: {name:$('buyer-name').value, cobuyer:$('buyer-cobuyer').value, address:$('buyer-address').value,
+      city:$('buyer-city').value, state:$('buyer-state').value, zip:$('buyer-zip').value,
+      county:D.county, phone:$('buyer-phone').value, email:$('buyer-email').value, dl:$('buyer-dl').value},
+    calc: dc, dealer: DEALER, dealType: D.type
+  };
 }
 
-// ═══ NAVIGATION ═══
+// ═══ DOCUMENT GENERATION ═══
+function generateDealSummaryHTML(data){
+  const {vehicle:v,buyer:b,calc:dc,dealer:dl,date,miles}=data;
+  const dmv=dc.dmvFees;
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Deal Summary</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#000;padding:20px;max-width:800px;margin:0 auto}
+.header{text-align:center;border-bottom:3px solid #000;padding-bottom:8px;margin-bottom:12px}.header h1{font-size:18px;font-weight:700;letter-spacing:1px}.header p{font-size:10px;color:#444}
+table{width:100%;border-collapse:collapse;margin-bottom:10px}td,th{padding:4px 6px;text-align:left;vertical-align:top}
+.box{border:2px solid #000;padding:8px;margin-bottom:10px}.box-title{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:1px;background:#e5e5e5;padding:4px 6px;margin:-8px -8px 8px;border-bottom:1px solid #000}
+.tila{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;border:2px solid #000;margin-bottom:10px}.tila-cell{padding:6px 8px;border-right:1px solid #000;text-align:center}.tila-cell:last-child{border-right:none}.tila-label{font-size:8px;color:#444;text-transform:uppercase;margin-bottom:2px}.tila-val{font-size:14px;font-weight:700}
+.row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #ddd}.row:last-child{border-bottom:none}.row-label{color:#444}.row-val{font-weight:600;text-align:right}
+.total-row{font-size:14px;font-weight:700;padding:6px 0;border-top:2px solid #000;margin-top:4px}
+.sig-line{border-top:1px solid #000;margin-top:30px;padding-top:4px;font-size:10px;color:#444;display:inline-block;width:45%}
+.footer{margin-top:20px;text-align:center;font-size:9px;color:#888;border-top:1px solid #ccc;padding-top:8px}
+</style></head><body>
+<div class="header"><h1>${dl.name}</h1><p>${dl.address}, ${dl.city}, ${dl.state} ${dl.zip} · Phone: ${dl.phone} · Fax: ${dl.fax}</p>
+<p style="margin-top:4px">Dealer #${dl.dealer_no} · Seller's Permit #${dl.seller_permit}</p></div>
+
+<div style="display:flex;justify-content:space-between;margin-bottom:10px">
+<div><strong>Salesperson:</strong> _______________</div><div><strong>Today's Date:</strong> ${date}</div></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:12px">
+<div><strong>F&I Manager:</strong> _______________</div><div><strong>Deal Date:</strong> ${date}</div></div>
+
+<div class="box"><div class="box-title">Buyer</div>
+<table><tr><td><strong>Name:</strong> ${b.name}</td><td><strong>Phone:</strong> ${b.phone}</td></tr>
+<tr><td><strong>Address:</strong> ${b.address}</td><td><strong>Email:</strong> ${b.email}</td></tr>
+<tr><td>${b.city}, ${b.state} ${b.zip}</td><td><strong>County:</strong> ${b.county}</td></tr>
+${b.cobuyer?`<tr><td colspan="2"><strong>Co-Buyer:</strong> ${b.cobuyer}</td></tr>`:''}</table></div>
+
+<div class="box"><div class="box-title">Vehicle Information — Purchase Used</div>
+<table><tr><td><strong>VIN:</strong> ${v.vin}</td><td><strong>Year:</strong> ${v.year}</td></tr>
+<tr><td><strong>Make:</strong> ${v.make}</td><td><strong>Model:</strong> ${v.model}</td></tr>
+<tr><td><strong>Body Style:</strong> ${v.body||'N/A'}</td><td><strong>Odometer:</strong> ${parseInt(miles).toLocaleString()}</td></tr></table></div>
+
+<div class="tila">
+<div class="tila-cell"><div class="tila-label">Annual % Rate</div><div class="tila-val">0.00%</div></div>
+<div class="tila-cell"><div class="tila-label">Finance Charge</div><div class="tila-val">$0.00</div></div>
+<div class="tila-cell"><div class="tila-label">Amount Financed</div><div class="tila-val">${fmt(dc.totalDue)}</div></div>
+<div class="tila-cell"><div class="tila-label">Total of Payments</div><div class="tila-val">${fmt(dc.totalDue)}</div></div>
+<div class="tila-cell"><div class="tila-label">Total Sale Price</div><div class="tila-val">${fmt(dc.totalDue)}</div></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+<div class="box"><div class="box-title">Itemization of Amount Financed</div>
+<div class="row"><span class="row-label">Sale Price:</span><span class="row-val">${fmt(dc.salePrice)}</span></div>
+<div class="row"><span class="row-label">Doc Fee:</span><span class="row-val">${fmt(dc.docFee)}</span></div>
+<div class="row"><span class="row-label">Smog Cert:</span><span class="row-val">${fmt(dc.smogFee)}</span></div>
+<div class="row"><span class="row-label">Sales Tax @ ${(dc.taxRate*100).toFixed(4)}%:</span><span class="row-val">${fmt(dc.salesTax)}</span></div>
+<div class="row" style="font-weight:700;border-top:1px solid #000"><span>Subtotal:</span><span>${fmt(dc.subtotal)}</span></div>
+<div class="row"><span class="row-label">License Fees:</span><span class="row-val">${fmt(dc.dmvFees.total)}*</span></div>
+<div class="total-row"><span>Total:</span><span style="float:right">${fmt(dc.totalDue)}</span></div>
+</div>
+
+<div class="box"><div class="box-title">License Fees Breakdown</div>
+<div class="row"><span class="row-label">Vehicle License Fee:</span><span class="row-val">${fmt(dmv.vlf)}</span></div>
+<div class="row"><span class="row-label">Base Registration:</span><span class="row-val">${fmt(dmv.baseReg)}</span></div>
+<div class="row"><span class="row-label">Title Transfer Fee:</span><span class="row-val">${fmt(dmv.titleTransfer)}</span></div>
+<div class="row"><span class="row-label">Trans. Improvement:</span><span class="row-val">${fmt(dmv.tif)}</span></div>
+<div class="row"><span class="row-label">Smog Abatement:</span><span class="row-val">${fmt(dmv.smogAbatement)}</span></div>
+<div class="row"><span class="row-label">CHP Fee:</span><span class="row-val">${fmt(dmv.chpFee)}</span></div>
+<div class="row" style="font-weight:700;border-top:1px solid #000"><span>Total:</span><span>${fmt(dmv.total)}*</span></div>
+<div style="font-size:9px;color:#888;margin-top:4px">* items marked are estimated</div>
+</div>
+
+<div class="box"><div class="box-title">Payment Schedule</div>
+<div class="row"><span class="row-label">1 Payment @:</span><span class="row-val">${fmt(dc.totalDue)}</span></div>
+<div class="row"><span class="row-label">Due On:</span><span class="row-val">${date}</span></div>
+<div style="margin-top:12px"><div class="row"><span class="row-label">Cash Down:</span><span class="row-val">$0.00</span></div>
+<div class="row" style="font-weight:700"><span>Amount Financed:</span><span>${fmt(dc.totalDue)}</span></div></div>
+</div></div>
+
+<div style="margin-top:20px;display:flex;justify-content:space-between">
+<div class="sig-line">Buyer Signature X</div>
+<div class="sig-line" style="margin-left:10%">Co-Buyer Signature X</div></div>
+
+<div style="margin-top:16px"><div class="sig-line">Dealer Signature</div></div>
+
+<div class="footer"><p>This is a non-binding proposal. All sales subject to credit approval.</p>
+<p>${dl.name} · ${dl.address}, ${dl.city}, ${dl.state} ${dl.zip} · ${dl.phone}</p>
+<p>${date}</p></div>
+</body></html>`;
+}
+
+function generateEsignHTML(data){
+  const {buyer:b,dealer:dl,date}=data;
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>eSign Consent</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:11px;padding:30px;max-width:750px;margin:0 auto;color:#000}h1{font-size:16px;text-align:center;margin-bottom:4px}h2{font-size:12px;text-align:center;text-transform:uppercase;margin-bottom:16px;color:#444}.intro{margin-bottom:16px;line-height:1.6}ol{margin:16px 0 24px 20px}ol li{margin-bottom:10px;line-height:1.5;text-transform:uppercase;font-size:10px}.sig-line{border-top:1px solid #000;margin-top:40px;padding-top:4px;font-size:10px;color:#444;display:inline-block;width:45%}.dealer{margin-top:20px;font-size:10px;color:#444;text-align:center}</style></head><body>
+<h1>Consent for Electronic Documents</h1>
+<h2>Consent for Electronic Documents Under the Electronic Signatures in Global and National Commerce Act</h2>
+<p style="font-style:italic;margin-bottom:16px;font-size:10px">Please read this information carefully and retain this information for future reference.</p>
+<p class="intro"><strong>Introduction.</strong> You acknowledge you are entering into an electronic transaction with <strong>${dl.name}</strong>. By consenting to receive information electronically, you will receive certain information and disclosures electronically ("Documents") regarding your vehicle purchase, including the following: e.g. State-Specific Notices, etc.</p>
+<p><strong>CONSENT AND ACKNOWLEDGMENT.</strong> BY CLICKING THE "I AGREE" BUTTON YOU CERTIFY THAT:</p>
+<ol><li>You confirm that during the document review process you have received printed copies of all these documents to assist with your review of any and all disclosures;</li>
+<li>You confirm that you understand that you will receive printed documents for your records which include your electronic signature;</li>
+<li>You acknowledge that you intend to receive electronic disclosures, and sign documents with your electronic signature;</li>
+<li>You confirm that you understand that you can contact our dealership in order to obtain a paper copy of any of the documents electronically signed;</li>
+<li>You confirm that you understand that your electronic signature can only be applied to the documents agreed upon and not any other documents, now or in the future;</li>
+<li>You confirm that you will not be receiving any future notices electronically.</li></ol>
+<div style="display:flex;justify-content:space-between"><div class="sig-line">Buyer Signature</div><div class="sig-line">Co-Buyer Signature</div></div>
+<div style="margin-top:20px"><div class="sig-line">Dealer Signature</div></div>
+<div class="dealer">${dl.name}</div>
+</body></html>`;
+}
+
+function generateDueBillHTML(data){
+  const {vehicle:v,buyer:b,dealer:dl,date,miles}=data;
+  const voidDate=new Date();voidDate.setDate(voidDate.getDate()+10);
+  const vd=String(voidDate.getMonth()+1).padStart(2,'0')+'/'+String(voidDate.getDate()).padStart(2,'0')+'/'+voidDate.getFullYear();
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Due Bill</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:11px;padding:30px;max-width:750px;margin:0 auto;color:#000}
+.header{display:flex;justify-content:space-between;margin-bottom:16px}.buyer-info{font-size:11px;line-height:1.5}
+.title{text-align:center;font-size:28px;font-weight:700;color:#c00;margin-bottom:12px}
+.void{text-align:right;font-weight:700;font-size:12px}.void-date{border:1px solid #000;padding:4px 8px;display:inline-block;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin-bottom:16px}th,td{border:1px solid #000;padding:6px 8px;font-size:10px}th{background:#eee;font-weight:700}
+.items{margin:12px 0}.items table td{height:24px}.note{font-size:10px;margin:12px 0;font-weight:700;text-transform:uppercase}.sig-line{border-top:1px solid #000;margin-top:30px;padding-top:4px;font-size:10px;color:#444;display:inline-block;width:45%}
+</style></head><body>
+<div class="header"><div class="buyer-info">${b.name}<br>${b.address}<br>${b.city}, ${b.state}<br>${b.zip}<br><br>${b.email}</div>
+<div><div class="void">VOID<br>AFTER<br>THIS DATE</div><div class="void-date">${vd}</div></div></div>
+<div class="title">DUE BILL</div>
+<table><tr><th>DATE</th><th>DESCRIPTION OF CAR</th><th>LICENSE NO.</th><th>VEHICLE VIN</th><th>SALESPERSON</th><th>STOCK NO.</th></tr>
+<tr><td>${date}</td><td>${v.make} / ${v.model}</td><td></td><td>${v.vin}</td><td></td><td>${v.vin.slice(-6)}</td></tr></table>
+<p style="font-weight:700;text-align:center;margin:12px 0;font-size:13px">PRESENT THIS ORDER WHEN WORK IS TO BE COMPLETED</p>
+<table><tr><td><strong>1.</strong> SOLD AS IS</td></tr><tr><td><strong>2.</strong></td></tr><tr><td><strong>3.</strong></td></tr><tr><td><strong>4.</strong></td></tr><tr><td><strong>5.</strong></td></tr></table>
+<p style="text-align:center;font-weight:700;margin:12px 0">NO OTHER WORK PROMISED OR IMPLIED</p>
+<p style="font-size:9px;margin-bottom:8px">I HEREBY ACCEPT THIS DUE BILL WITH THE UNDERSTANDING THAT IT IS VALID FOR ONLY (10) TEN DAYS FROM DATE OF ISSUANCE.</p>
+<p class="note">NOTE: THE ABOVE PROMISED WORK IS THE ONLY WORK TO BE PERFORMED WITHOUT ADDITIONAL CHARGE.</p>
+<div style="display:flex;justify-content:space-between"><div class="sig-line">Signed: Customer</div><div class="sig-line">Signed: Sales Mgr.</div></div>
+</body></html>`;
+}
+
+function generateBuyersGuideHTML(data){
+  const {vehicle:v,dealer:dl,date,miles}=data;
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Buyers Guide</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:11px;padding:30px;max-width:750px;margin:0 auto;color:#000}
+h1{text-align:center;font-size:22px;font-weight:700;margin-bottom:12px}
+.vehicle{display:flex;justify-content:space-between;border:1px solid #000;padding:6px 10px;margin-bottom:12px;font-size:11px}
+.asis{border:3px solid #000;padding:16px;margin-bottom:12px;text-align:center}.asis h2{font-size:18px;margin-bottom:4px}.asis p{font-size:10px;color:#444}
+.checkbox{display:inline-block;width:18px;height:18px;border:2px solid #000;margin-right:8px;vertical-align:middle;text-align:center;font-weight:700;font-size:14px;line-height:16px}
+.section{border:1px solid #000;padding:10px;margin-bottom:10px;font-size:10px}
+.sig-line{border-top:1px solid #000;margin-top:30px;padding-top:4px;font-size:10px;color:#444;display:inline-block;width:60%}
+.footer{margin-top:16px;border-top:1px solid #000;padding-top:8px;font-size:10px}
+</style></head><body>
+<h1>BUYERS GUIDE</h1>
+<p style="text-align:center;font-size:10px;font-weight:700;margin-bottom:12px">IMPORTANT: Spoken promises are difficult to enforce. Ask the dealer to put all promises in writing. Keep this form.</p>
+<div class="vehicle"><div><strong>VEHICLE MAKE:</strong> ${v.make}</div><div><strong>MODEL:</strong> ${v.model}</div><div><strong>YEAR:</strong> ${v.year}</div><div><strong>VIN:</strong> ${v.vin}</div></div>
+<div style="text-align:right;margin-bottom:8px;font-size:10px"><strong>Odom:</strong> ${parseInt(miles).toLocaleString()}</div>
+<p style="font-weight:700;margin-bottom:8px">WARRANTIES FOR THIS VEHICLE:</p>
+<div class="asis"><div><span class="checkbox">✕</span><h2 style="display:inline">AS IS — NO DEALER WARRANTY</h2></div><p>THE DEALER DOES NOT PROVIDE A WARRANTY FOR ANY REPAIRS AFTER SALE.</p></div>
+<div class="section"><p><strong>ASK THE DEALER IF YOUR MECHANIC CAN INSPECT THE VEHICLE ON OR OFF THE LOT.</strong></p>
+<p style="margin-top:6px"><strong>OBTAIN A VEHICLE HISTORY REPORT AND CHECK FOR OPEN SAFETY RECALLS.</strong> For information on how to obtain a vehicle history report, visit ftc.gov/usedcars. To check for open safety recalls, visit safercar.gov.</p></div>
+<div class="sig-line">I HAVE READ AND RECEIVED A COPY OF THE BUYERS GUIDE ON THIS VEHICLE.<br><br>_________________________ DATE ${date}</div>
+<div class="footer"><strong>DEALER NAME:</strong> ${dl.name}<br><strong>ADDRESS:</strong> ${dl.address}, ${dl.city}, ${dl.state} ${dl.zip}<br><strong>TELEPHONE:</strong> ${dl.phone} &nbsp; <strong>EMAIL:</strong> ${dl.email}</div>
+</body></html>`;
+}
+
+function generatePrivacyNoticeHTML(data){
+  const {buyer:b,dealer:dl,date}=data;
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Privacy Notice</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:10px;padding:30px;max-width:750px;margin:0 auto;color:#000}
+h1{font-size:18px;text-align:center;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;margin-bottom:12px}th,td{border:1px solid #000;padding:5px 8px;font-size:10px;vertical-align:top}th{background:#eee;text-align:left}
+.sig-line{border-top:1px solid #000;margin-top:30px;padding-top:4px;font-size:10px;color:#444;display:inline-block;width:45%}
+</style></head><body>
+<h1>PRIVACY NOTICE</h1>
+<table><tr><th colspan="2">FACTS: WHAT DOES ${dl.name.toUpperCase()} DO WITH YOUR PERSONAL INFORMATION?</th></tr></table>
+<table><tr><th style="width:60%">Reasons we can share your personal information</th><th>Does ${dl.name} share?</th><th>Can you limit this sharing?</th></tr>
+<tr><td>For our everyday business purposes</td><td>NO</td><td>We do not share</td></tr>
+<tr><td>For our marketing purposes</td><td>NO</td><td>We do not share</td></tr>
+<tr><td>For joint marketing with other financial companies</td><td>NO</td><td>We do not share</td></tr>
+<tr><td>For our affiliates' everyday business purposes</td><td>NO</td><td>We do not share</td></tr>
+<tr><td>For nonaffiliates to market to you</td><td>NO</td><td>We do not share</td></tr></table>
+<p><strong>Questions?</strong> Call ${dl.phone}</p>
+<p style="margin-top:12px"><strong>By signing below, you acknowledge receipt of this Privacy Notice:</strong></p>
+<div style="display:flex;justify-content:space-between;margin-top:8px"><div class="sig-line">Buyer Signature &nbsp;&nbsp; Date: ${date}<br><br>Print Name: ${b.name}</div>
+<div class="sig-line">Co-Buyer Signature &nbsp;&nbsp; Date: ${date}<br><br>Print Name: ${b.cobuyer||''}</div></div>
+</body></html>`;
+}
+
+function getAllDocuments(data){
+  const docs=[];
+  if(data.dealType==='sell'){
+    docs.push({name:'eSign Consent',html:generateEsignHTML(data)});
+    docs.push({name:'Deal Summary - Buyers Order',html:generateDealSummaryHTML(data)});
+    docs.push({name:'FTC Buyers Guide',html:generateBuyersGuideHTML(data)});
+    docs.push({name:'Due Bill',html:generateDueBillHTML(data)});
+    docs.push({name:'Privacy Notice',html:generatePrivacyNoticeHTML(data)});
+  }
+  return docs;
+}
+
+// ═══ PREVIEW ═══
+function previewPacket(){
+  const data=getDealData();
+  const docs=getAllDocuments(data);
+  const w=window.open('','_blank','width=850,height=1000');
+  if(!w){alert('Please allow popups for this site');return;}
+  let html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>NUVO Deal Packet Preview</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:#f5f5f5;padding:20px}
+.doc-page{background:#fff;max-width:800px;margin:0 auto 40px;padding:40px;box-shadow:0 2px 20px rgba(0,0,0,0.15);border-radius:4px;page-break-after:always}
+.doc-divider{text-align:center;font-size:14px;font-weight:700;color:#666;padding:16px 0;text-transform:uppercase;letter-spacing:2px}
+.page-num{text-align:center;font-size:10px;color:#999;margin-top:12px}
+h1.packet-title{text-align:center;font-size:20px;margin-bottom:8px}
+.packet-sub{text-align:center;font-size:12px;color:#666;margin-bottom:30px}
+.note-banner{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin:0 auto 30px;max-width:800px;font-size:12px;color:#856404}
+@media print{.doc-divider{page-break-before:always}.note-banner{display:none}body{background:#fff;padding:0}.doc-page{box-shadow:none;margin:0;padding:20px}}
+</style></head><body>
+<h1 class="packet-title">${DEALER.name} — Deal Packet</h1>
+<p class="packet-sub">${data.vehicle.year} ${data.vehicle.make} ${data.vehicle.model} · ${data.buyer.name} · ${data.date}</p>
+<div class="note-banner">⚠️ This preview shows auto-generated documents (eSign, Deal Summary, Buyers Guide, Due Bill, Privacy Notice). Legal forms (LAW 553-CA-ARB, REG 262, REG 51, CCOA, ATFI) require PDF template fill — coming in Phase 3.</div>`;
+  docs.forEach((doc,i)=>{
+    // Extract body content from full HTML
+    const bodyMatch=doc.html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    const styleMatch=doc.html.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+    html+=`<div class="doc-divider">Document ${i+1} of ${docs.length}: ${doc.name}</div>
+<div class="doc-page"><style>${styleMatch?styleMatch[1]:''}</style>${bodyMatch?bodyMatch[1]:doc.html}
+<div class="page-num">Page ${i+1} of ${docs.length} · ${DEALER.name} · Dealer #${DEALER.dealer_no}</div></div>`;
+  });
+  html+=`</body></html>`;
+  w.document.write(html);
+  w.document.close();
+}
+
+// ═══ PRINT ═══
+function printPacket(){
+  const data=getDealData();
+  const docs=getAllDocuments(data);
+  const w=window.open('','_blank');
+  if(!w){alert('Please allow popups for this site');return;}
+  let html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Print - Deal Packet</title>
+<style>@media print{@page{margin:0.5in}body{font-size:11px}}body{font-family:Arial,sans-serif;margin:0;padding:0}
+.page{page-break-after:always;padding:20px;max-width:800px;margin:0 auto}</style></head><body>`;
+  docs.forEach(doc=>{
+    const bodyMatch=doc.html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    const styleMatch=doc.html.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+    html+=`<div class="page"><style>${styleMatch?styleMatch[1]:''}</style>${bodyMatch?bodyMatch[1]:doc.html}</div>`;
+  });
+  html+=`</body></html>`;
+  w.document.write(html);
+  w.document.close();
+  setTimeout(()=>w.print(),500);
+}
+
+// ═══ DOCUSIGN ═══
+async function sendDocuSign(){
+  const btn=$('btn-docusign');
+  const statusEl=$('docusign-status');
+  const data=getDealData();
+  const docs=getAllDocuments(data);
+
+  if(!data.buyer.email){statusEl.innerHTML='<div class="status-bar error">Buyer email is required for DocuSign</div>';return;}
+
+  btn.disabled=true;
+  btn.innerHTML='<span class="vin-spinner" style="border-color:#fff;border-top-color:transparent"></span> Sending to DocuSign...';
+  statusEl.innerHTML='<div class="status-bar sending"><span class="vin-spinner"></span> Creating envelope and sending to '+data.buyer.email+'...</div>';
+
+  try{
+    const docPayload=docs.map(doc=>({
+      base64:btoa(unescape(encodeURIComponent(doc.html))),
+      name:doc.name,
+      extension:'html'
+    }));
+
+    const res=await fetch(DOCUSIGN_WORKER+'/send',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        signerName:data.buyer.name,
+        signerEmail:data.buyer.email,
+        coSignerName:data.buyer.cobuyer||null,
+        coSignerEmail:null,
+        documents:docPayload,
+        emailSubject:`${DEALER.name} — ${data.vehicle.year} ${data.vehicle.make} ${data.vehicle.model} Purchase Documents`
+      })
+    });
+
+    const result=await res.json();
+    if(result.success){
+      statusEl.innerHTML=`<div class="status-bar success">✅ Envelope sent! ID: ${result.envelopeId}<br><span style="font-size:11px;font-weight:400">Sent to ${data.buyer.name} (${data.buyer.email})</span></div>`;
+      btn.innerHTML='✅ Sent via DocuSign';
+    } else {
+      throw new Error(result.error||'Unknown error');
+    }
+  } catch(err){
+    statusEl.innerHTML=`<div class="status-bar error">❌ DocuSign error: ${err.message}</div>`;
+    btn.disabled=false;
+    btn.innerHTML='✍️ Retry DocuSign';
+  }
+}
+
+// ═══ TIMER ═══
+function updateTimer(){if(!D.start||D.done)return;D.elapsed=Math.floor((Date.now()-D.start)/1000);const m=Math.floor(D.elapsed/60),s=D.elapsed%60;const el=$('timer-display');if(el){el.textContent=m+":"+String(s).padStart(2,'0');el.style.color=D.elapsed<120?"#22c55e":D.elapsed<180?"#facc15":"#ef4444"}}
+
+// ═══ NAV ═══
 function startDeal(type){
-  D.type=type; D.start=Date.now(); D.elapsed=0; D.done=false; D.vehicle=null; D.showCobuyer=false; D.county="Orange";
-  show('screen-home',false); show('screen-deal',true);
-
-  // Set deal type badge
-  const colors={sell:"#22c55e",buy:"#3b82f6",consign:"#a855f7"};
-  const labels={sell:"SELLING",buy:"BUYING",consign:"CONSIGNMENT"};
-  const badge=$('deal-type-badge');
-  badge.textContent=labels[type];
-  badge.style.background=colors[type]+"22";
-  badge.style.border="1px solid "+colors[type]+"55";
-  badge.style.color=colors[type];
-
-  // Clear inputs
-  $('vin-input').value=''; $('miles-input').value='';
-  $('vehicle-card').innerHTML=''; $('vin-status').innerHTML='';
-  $('buyer-name').value=''; $('buyer-cobuyer').value='';
-  $('buyer-address').value=''; $('buyer-city').value='';
-  $('buyer-state').value='CA'; $('buyer-zip').value='';
-  $('buyer-phone').value=''; $('buyer-email').value='';
-  $('buyer-dl').value=''; $('sale-price').value='';
-  show('cobuyer-field',false); show('county-badge',false);
-  show('fee-breakdown',false);
-
-  // Labels
-  const partyWord = type==='sell'?'Buyer':type==='buy'?'Seller':'Owner';
-  $('step2-title').textContent=partyWord+' Information';
-  $('party-label').textContent=partyWord+' Full Name';
-  $('nav-1-next').textContent='Next → '+partyWord;
-  show('cobuyer-section', type==='sell');
-
-  // County selector
-  const sel=$('tax-county');
-  sel.innerHTML=Object.keys(CA_TAX).map(c=>`<option value="${c}">${c} (${(CA_TAX[c]*100).toFixed(2)}%)</option>`).join('');
-  sel.value="Orange";
-
-  // Timer
-  if(timer) clearInterval(timer);
-  timer=setInterval(updateTimer,1000);
-  updateTimer();
-
+  D.type=type;D.start=Date.now();D.elapsed=0;D.done=false;D.vehicle=null;D.showCobuyer=false;D.county="Orange";D.dealCalc=null;
+  show('screen-home',false);show('screen-deal',true);
+  const colors={sell:"#22c55e",buy:"#3b82f6",consign:"#a855f7"},labels={sell:"SELLING",buy:"BUYING",consign:"CONSIGNMENT"};
+  const badge=$('deal-type-badge');badge.textContent=labels[type];badge.style.background=colors[type]+"22";badge.style.border="1px solid "+colors[type]+"55";badge.style.color=colors[type];
+  $('vin-input').value='';$('miles-input').value='';$('vehicle-card').innerHTML='';$('vin-status').innerHTML='';
+  $('buyer-name').value='';$('buyer-cobuyer').value='';$('buyer-address').value='';$('buyer-city').value='';$('buyer-state').value='CA';$('buyer-zip').value='';$('buyer-phone').value='';$('buyer-email').value='';$('buyer-dl').value='';$('sale-price').value='';
+  show('cobuyer-field',false);show('county-badge',false);show('fee-breakdown',false);
+  const pw=type==='sell'?'Buyer':type==='buy'?'Seller':'Owner';
+  $('step2-title').textContent=pw+' Information';$('party-label').textContent=pw+' Full Name';$('nav-1-next').textContent='Next → '+pw;show('cobuyer-section',type==='sell');
+  const sel=$('tax-county');sel.innerHTML=Object.keys(CA_TAX).map(c=>`<option value="${c}">${c} (${(CA_TAX[c]*100).toFixed(2)}%)</option>`).join('');sel.value="Orange";
+  if(timer)clearInterval(timer);timer=setInterval(updateTimer,1000);updateTimer();
   goStep(1);
 }
 
 function goStep(n){
-  D.step=n;
-  [1,2,3,4].forEach(i=>show('step-'+i,i===n));
-
-  // Update step pills
-  const names = D.type==='sell'?['Vehicle','Buyer','Numbers','Packet']:D.type==='buy'?['Vehicle','Seller','Numbers','Packet']:['Vehicle','Owner','Terms','Packet'];
-  show('step-pills',n<4);
-  $('step-pills').innerHTML=names.map((label,i)=>{
-    const cls=n>i+1?'done':n===i+1?'active':'future';
-    return `<div class="step-pill ${cls}">${n>i+1?'✓ ':''}${label}</div>`;
-  }).join('');
-
-  if(n===3) setupStep3();
-  checkNav();
+  D.step=n;[1,2,3,4].forEach(i=>show('step-'+i,i===n));
+  const names=D.type==='sell'?['Vehicle','Buyer','Numbers','Packet']:D.type==='buy'?['Vehicle','Seller','Numbers','Packet']:['Vehicle','Owner','Terms','Packet'];
+  show('step-pills',n<4);$('step-pills').innerHTML=names.map((l,i)=>`<div class="step-pill ${n>i+1?'done':n===i+1?'active':'future'}">${n>i+1?'✓ ':''}${l}</div>`).join('');
+  if(n===3)setupStep3();checkNav();
 }
 
-function resetDeal(){
-  if(timer) clearInterval(timer);
-  D={step:0,type:null,start:null,elapsed:0,done:false,vehicle:null,showCobuyer:false,county:"Orange"};
-  show('screen-home',true); show('screen-deal',false);
-}
+function resetDeal(){if(timer)clearInterval(timer);D={step:0,type:null,start:null,elapsed:0,done:false,vehicle:null,showCobuyer:false,county:"Orange",dealCalc:null};show('screen-home',true);show('screen-deal',false)}
 
-// ═══ STEP VALIDATION ═══
 function checkNav(){
-  if(D.step===1){
-    $('nav-1-next').disabled = !(D.vehicle && $('miles-input').value);
-  } else if(D.step===2){
-    const has = v => v && v.trim().length>0;
-    $('nav-2-next').disabled = !(has($('buyer-name').value) && has($('buyer-address').value) && has($('buyer-city').value) && has($('buyer-zip').value) && has($('buyer-phone').value) && has($('buyer-email').value));
-  } else if(D.step===3){
-    const p=parseFloat($('sale-price').value);
-    $('nav-3-next').disabled = !(p>0);
-  }
+  if(D.step===1)$('nav-1-next').disabled=!(D.vehicle&&$('miles-input').value);
+  else if(D.step===2){const h=v=>v&&v.trim().length>0;$('nav-2-next').disabled=!(h($('buyer-name').value)&&h($('buyer-address').value)&&h($('buyer-city').value)&&h($('buyer-zip').value)&&h($('buyer-phone').value)&&h($('buyer-email').value))}
+  else if(D.step===3)$('nav-3-next').disabled=!(parseFloat($('sale-price').value)>0);
 }
 
-// ═══ VIN DECODE ═══
+// ═══ VIN ═══
 let vinTimeout=null;
 async function decodeVin(vin){
-  if(vin.length!==17){$('vin-status').innerHTML='<div class="vin-error">VIN must be 17 characters</div>';return;}
-  $('vin-status').innerHTML='<div class="vin-loading"><span class="vin-spinner"></span>Decoding VIN...</div>';
-  D.vehicle=null; $('vehicle-card').innerHTML=''; checkNav();
-  try{
-    const r=await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`);
-    const data=await r.json();
-    const get=name=>{const i=data.Results?.find(x=>x.Variable===name);return i?.Value&&i.Value!=="Not Applicable"&&i.Value!==""?i.Value:null;};
-    const year=get("Model Year"),make=get("Make"),model=get("Model");
-    if(!year||!make){$('vin-status').innerHTML='<div class="vin-error">Could not decode VIN — check and retry</div>';return;}
-    D.vehicle={vin:vin.toUpperCase(),year,make:make.toUpperCase(),model:(model||"").toUpperCase(),
-      body:get("Body Class")||"",engine:get("Displacement (L)")?get("Displacement (L)")+"L":"",
-      cylinders:get("Engine Number of Cylinders")||"",drive:get("Drive Type")||"",
-      fuel:get("Fuel Type - Primary")||"",trim:get("Trim")||""};
-    $('vin-status').innerHTML='';
-    const v=D.vehicle;
-    const chips=[v.body,v.engine&&`${v.engine} ${v.cylinders?v.cylinders+'cyl':''}`,v.drive,v.fuel,v.trim].filter(Boolean).map(c=>`<span class="v-chip">${c}</span>`).join('');
-    $('vehicle-card').innerHTML=`<div class="v-card"><div class="v-title">${v.year} ${v.make} ${v.model}</div><div class="v-sub">${v.vin}</div><div class="v-chips">${chips}</div></div>`;
-    checkNav();
-  }catch(e){$('vin-status').innerHTML='<div class="vin-error">Network error — check connection</div>';}
+  if(vin.length!==17){$('vin-status').innerHTML='<div class="vin-error">VIN must be 17 characters</div>';return}
+  $('vin-status').innerHTML='<div class="vin-loading"><span class="vin-spinner"></span>Decoding VIN...</div>';D.vehicle=null;$('vehicle-card').innerHTML='';checkNav();
+  try{const r=await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`);const data=await r.json();const get=name=>{const i=data.Results?.find(x=>x.Variable===name);return i?.Value&&i.Value!=="Not Applicable"&&i.Value!==""?i.Value:null};
+  const year=get("Model Year"),make=get("Make"),model=get("Model");if(!year||!make){$('vin-status').innerHTML='<div class="vin-error">Could not decode VIN</div>';return}
+  D.vehicle={vin:vin.toUpperCase(),year,make:make.toUpperCase(),model:(model||"").toUpperCase(),body:get("Body Class")||"",engine:get("Displacement (L)")?get("Displacement (L)")+"L":"",cylinders:get("Engine Number of Cylinders")||"",drive:get("Drive Type")||"",fuel:get("Fuel Type - Primary")||"",trim:get("Trim")||""};
+  $('vin-status').innerHTML='';const v=D.vehicle;const chips=[v.body,v.engine&&`${v.engine} ${v.cylinders?v.cylinders+'cyl':''}`,v.drive,v.fuel,v.trim].filter(Boolean).map(c=>`<span class="v-chip">${c}</span>`).join('');
+  $('vehicle-card').innerHTML=`<div class="v-card"><div class="v-title">${v.year} ${v.make} ${v.model}</div><div class="v-sub">${v.vin}</div><div class="v-chips">${chips}</div></div>`;checkNav()}
+  catch(e){$('vin-status').innerHTML='<div class="vin-error">Network error</div>'}
 }
 
-// ═══ STEP 3 SETUP ═══
-function setupStep3(){
-  const v=D.vehicle;
-  if(v){
-    const mi=$('miles-input').value;
-    $('vehicle-mini').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center">
-      <div><div style="font-size:15px;font-weight:700;color:#fefce8">${v.year} ${v.make} ${v.model}</div>
-      <div style="font-size:11px;color:#6b7280">${v.vin} · ${parseInt(mi||0).toLocaleString()} mi</div></div>
-      <div style="font-size:11px;color:#6b7280">→ ${($('buyer-name').value||'').split(' ')[0]}</div></div>`;
-    show('vehicle-mini',true);
-  }
-  updateFees();
-}
+// ═══ STEP 3 ═══
+function setupStep3(){const v=D.vehicle;if(v){const mi=$('miles-input').value;$('vehicle-mini').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:15px;font-weight:700;color:#fefce8">${v.year} ${v.make} ${v.model}</div><div style="font-size:11px;color:#6b7280">${v.vin} · ${parseInt(mi||0).toLocaleString()} mi</div></div><div style="font-size:11px;color:#6b7280">→ ${($('buyer-name').value||'').split(' ')[0]}</div></div>`;show('vehicle-mini',true)}updateFees()}
 
 function updateFees(){
-  const price=parseFloat($('sale-price').value);
-  if(!price||price<=0){show('fee-breakdown',false);return;}
-  const county=$('tax-county').value;
-  const dc=calcDeal(price,county);
-  show('fee-breakdown',true);
-  $('fee-breakdown').innerHTML=`
-    <div class="card-title">Fee Breakdown</div>
-    <div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
-    <div class="summ-row"><span class="summ-label">Doc Fee</span><span class="summ-val">${fmt(dc.docFee)}</span></div>
-    <div class="summ-row"><span class="summ-label">Smog Certification</span><span class="summ-val">${fmt(dc.smogFee)}</span></div>
-    <div class="summ-row"><span class="summ-label">Sales Tax (${(dc.taxRate*100).toFixed(2)}%)</span><span class="summ-val">${fmt(dc.salesTax)}</span></div>
-    <div class="summ-row" style="border-bottom:none"><span class="summ-label">Subtotal</span><span class="summ-val" style="color:#facc15">${fmt(dc.subtotal)}</span></div>
-    <div class="dmv-section">
-      <div class="dmv-label">DMV Fees (Estimated)</div>
-      <div class="summ-row"><span class="summ-label">Vehicle License Fee</span><span class="summ-val">${fmt(dc.dmvFees.vlf)}</span></div>
-      <div class="summ-row"><span class="summ-label">Base Registration</span><span class="summ-val">${fmt(dc.dmvFees.baseReg)}</span></div>
-      <div class="summ-row"><span class="summ-label">Title Transfer</span><span class="summ-val">${fmt(dc.dmvFees.titleTransfer)}</span></div>
-      <div class="summ-row"><span class="summ-label">Trans. Improvement Fee</span><span class="summ-val">${fmt(dc.dmvFees.tif)}</span></div>
-      <div class="summ-row"><span class="summ-label">Smog Abatement</span><span class="summ-val">${fmt(dc.dmvFees.smogAbatement)}</span></div>
-      <div class="summ-row" style="border-bottom:none"><span class="summ-label">CHP Fee</span><span class="summ-val">${fmt(dc.dmvFees.chpFee)}</span></div>
-    </div>
-    <div class="summ-total"><span class="summ-total-label">Total Due</span><span class="summ-total-val">${fmt(dc.totalDue)}</span></div>`;
-  checkNav();
+  const price=parseFloat($('sale-price').value);if(!price||price<=0){show('fee-breakdown',false);return}
+  const county=$('tax-county').value;const dc=calcDeal(price,county);D.dealCalc=dc;show('fee-breakdown',true);
+  $('fee-breakdown').innerHTML=`<div class="card-title">Fee Breakdown</div>
+<div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
+<div class="summ-row"><span class="summ-label">Doc Fee</span><span class="summ-val">${fmt(dc.docFee)}</span></div>
+<div class="summ-row"><span class="summ-label">Smog Certification</span><span class="summ-val">${fmt(dc.smogFee)}</span></div>
+<div class="summ-row"><span class="summ-label">Sales Tax (${(dc.taxRate*100).toFixed(2)}%)</span><span class="summ-val">${fmt(dc.salesTax)}</span></div>
+<div class="summ-row" style="border-bottom:none"><span class="summ-label">Subtotal</span><span class="summ-val" style="color:#facc15">${fmt(dc.subtotal)}</span></div>
+<div class="dmv-section"><div class="dmv-label">DMV Fees (Estimated)</div>
+<div class="summ-row"><span class="summ-label">Vehicle License Fee</span><span class="summ-val">${fmt(dc.dmvFees.vlf)}</span></div>
+<div class="summ-row"><span class="summ-label">Base Registration</span><span class="summ-val">${fmt(dc.dmvFees.baseReg)}</span></div>
+<div class="summ-row"><span class="summ-label">Title Transfer</span><span class="summ-val">${fmt(dc.dmvFees.titleTransfer)}</span></div>
+<div class="summ-row"><span class="summ-label">Trans. Improvement Fee</span><span class="summ-val">${fmt(dc.dmvFees.tif)}</span></div>
+<div class="summ-row"><span class="summ-label">Smog Abatement</span><span class="summ-val">${fmt(dc.dmvFees.smogAbatement)}</span></div>
+<div class="summ-row" style="border-bottom:none"><span class="summ-label">CHP Fee</span><span class="summ-val">${fmt(dc.dmvFees.chpFee)}</span></div></div>
+<div class="summ-total"><span class="summ-total-label">Total Due</span><span class="summ-total-val">${fmt(dc.totalDue)}</span></div>`;checkNav();
 }
 
-// ═══ COMPLETE DEAL ═══
+// ═══ COMPLETE ═══
 function completeDeal(){
-  D.done=true; if(timer)clearInterval(timer);
-  const price=parseFloat($('sale-price').value);
-  const county=$('tax-county').value;
-  const dc=calcDeal(price,county);
-  const v=D.vehicle, fast=D.elapsed<=180;
-  const m=Math.floor(D.elapsed/60),s=D.elapsed%60;
-  const timeStr=m+":"+String(s).padStart(2,'0');
-  const tc=D.elapsed<120?"#22c55e":D.elapsed<180?"#facc15":"#ef4444";
-
-  const banner=$('completion-banner');
-  banner.className='completion-banner '+(fast?'fast':'normal');
-  banner.innerHTML=`<div style="font-size:36px;margin-bottom:4px">${fast?'⚡':'✅'}</div>
-    <div style="font-size:18px;font-weight:800;color:${fast?'#86efac':'#fde68a'}">${fast?'DEAL CLOSED UNDER 3 MIN':'DEAL COMPLETE'}</div>
-    <div style="font-size:28px;font-weight:800;color:${tc};margin-top:4px">${timeStr}</div>`;
-
-  const bn=$('buyer-name').value, mi=$('miles-input').value;
-  const partyLabel=D.type==='sell'?'Buyer':D.type==='buy'?'Seller':'Owner';
-  const cb=$('buyer-cobuyer').value;
-  $('deal-recap').innerHTML=`
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
-      <div><div style="font-size:18px;font-weight:800;color:#fefce8">${v.year} ${v.make} ${v.model}</div>
-        <div style="font-size:11px;color:#6b7280;font-family:monospace">${v.vin}</div></div>
-      <div style="text-align:right"><div style="font-size:20px;font-weight:800;color:#facc15">${fmt(dc.totalDue)}</div>
-        <div style="font-size:10px;color:#6b7280">TOTAL DUE</div></div>
-    </div>
-    <div class="divider"></div>
-    <div class="summ-row"><span class="summ-label">${partyLabel}</span><span class="summ-val">${bn}</span></div>
-    ${cb?`<div class="summ-row"><span class="summ-label">Co-Buyer</span><span class="summ-val">${cb}</span></div>`:''}
-    <div class="summ-row"><span class="summ-label">Address</span><span class="summ-val">${$('buyer-address').value}, ${$('buyer-city').value}</span></div>
-    <div class="summ-row"><span class="summ-label">Miles</span><span class="summ-val">${parseInt(mi||0).toLocaleString()}</span></div>
-    <div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
-    <div class="summ-row"><span class="summ-label">Tax (${(dc.taxRate*100).toFixed(2)}%)</span><span class="summ-val">${fmt(dc.salesTax)}</span></div>
-    <div class="summ-row"><span class="summ-label">Doc + Smog</span><span class="summ-val">${fmt(dc.docFee+dc.smogFee)}</span></div>
-    <div class="summ-row" style="border-bottom:none"><span class="summ-label">DMV Fees*</span><span class="summ-val">${fmt(dc.dmvFees.total)}</span></div>`;
-
+  D.done=true;if(timer)clearInterval(timer);
+  const price=parseFloat($('sale-price').value),county=$('tax-county').value;
+  D.dealCalc=calcDeal(price,county);const dc=D.dealCalc,v=D.vehicle,fast=D.elapsed<=180;
+  const m=Math.floor(D.elapsed/60),s=D.elapsed%60,timeStr=m+":"+String(s).padStart(2,'0'),tc=D.elapsed<120?"#22c55e":D.elapsed<180?"#facc15":"#ef4444";
+  $('completion-banner').className='completion-banner '+(fast?'fast':'normal');
+  $('completion-banner').innerHTML=`<div style="font-size:36px;margin-bottom:4px">${fast?'⚡':'✅'}</div><div style="font-size:18px;font-weight:800;color:${fast?'#86efac':'#fde68a'}">${fast?'DEAL CLOSED UNDER 3 MIN':'DEAL COMPLETE'}</div><div style="font-size:28px;font-weight:800;color:${tc};margin-top:4px">${timeStr}</div>`;
+  const bn=$('buyer-name').value,mi=$('miles-input').value,pl=D.type==='sell'?'Buyer':D.type==='buy'?'Seller':'Owner',cb=$('buyer-cobuyer').value;
+  $('deal-recap').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px"><div><div style="font-size:18px;font-weight:800;color:#fefce8">${v.year} ${v.make} ${v.model}</div><div style="font-size:11px;color:#6b7280;font-family:monospace">${v.vin}</div></div><div style="text-align:right"><div style="font-size:20px;font-weight:800;color:#facc15">${fmt(dc.totalDue)}</div><div style="font-size:10px;color:#6b7280">TOTAL DUE</div></div></div><div class="divider"></div>
+<div class="summ-row"><span class="summ-label">${pl}</span><span class="summ-val">${bn}</span></div>${cb?`<div class="summ-row"><span class="summ-label">Co-Buyer</span><span class="summ-val">${cb}</span></div>`:''}
+<div class="summ-row"><span class="summ-label">Address</span><span class="summ-val">${$('buyer-address').value}, ${$('buyer-city').value}</span></div>
+<div class="summ-row"><span class="summ-label">Miles</span><span class="summ-val">${parseInt(mi||0).toLocaleString()}</span></div>
+<div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
+<div class="summ-row"><span class="summ-label">Tax (${(dc.taxRate*100).toFixed(2)}%)</span><span class="summ-val">${fmt(dc.salesTax)}</span></div>
+<div class="summ-row"><span class="summ-label">Doc + Smog</span><span class="summ-val">${fmt(dc.docFee+dc.smogFee)}</span></div>
+<div class="summ-row" style="border-bottom:none"><span class="summ-label">DMV Fees*</span><span class="summ-val">${fmt(dc.dmvFees.total)}</span></div>`;
   const docs=getDocList(D.type,dc.salePrice);
-  $('doc-packet').innerHTML=`
-    <div class="card-title">Document Packet · ${docs.length} Forms</div>
-    ${docs.map(d=>`<div class="doc-row"><div class="doc-check">✓</div><span class="doc-name">${d.n}</span><span class="doc-form">${d.f}</span></div>`).join('')}
-    ${dc.salePrice>=40000&&D.type==='sell'?'<div class="info-note blue" style="margin-top:10px">CCOA not required — sale price exceeds $40,000</div>':''}`;
-
+  $('doc-packet').innerHTML=`<div class="card-title">Document Packet · ${docs.length} Forms</div>${docs.map(d=>`<div class="doc-row"><div class="doc-check">✓</div><span class="doc-name">${d.n}</span><span class="doc-form">${d.f}</span></div>`).join('')}${dc.salePrice>=40000&&D.type==='sell'?'<div class="info-note blue" style="margin-top:10px">CCOA not required — sale price exceeds $40,000</div>':''}`;
+  $('docusign-status').innerHTML='';
+  $('btn-docusign').disabled=false;$('btn-docusign').innerHTML='✍️ Send via DocuSign';
   goStep(4);
 }
 
-// ═══ CO-BUYER TOGGLE ═══
-function toggleCobuyer(){
-  D.showCobuyer=!D.showCobuyer;
-  show('cobuyer-field',D.showCobuyer);
-  document.querySelector('.cobuyer-toggle').textContent=D.showCobuyer?'− Remove Co-Buyer':'+ Add Co-Buyer';
-}
+function toggleCobuyer(){D.showCobuyer=!D.showCobuyer;show('cobuyer-field',D.showCobuyer);document.querySelector('.cobuyer-toggle').textContent=D.showCobuyer?'− Remove Co-Buyer':'+ Add Co-Buyer'}
 
-// ═══ EVENT LISTENERS (no re-render!) ═══
+// ═══ EVENT LISTENERS ═══
 document.addEventListener('DOMContentLoaded',()=>{
-  // VIN input — debounced decode
-  $('vin-input').addEventListener('input',e=>{
-    let v=e.target.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();
-    if(v!==e.target.value){const pos=e.target.selectionStart;e.target.value=v;e.target.setSelectionRange(pos,pos);}
-    if(vinTimeout)clearTimeout(vinTimeout);
-    if(v.length===17){vinTimeout=setTimeout(()=>decodeVin(v),100);}
-    else{D.vehicle=null;$('vehicle-card').innerHTML='';$('vin-status').innerHTML='';checkNav();}
-  });
-
-  // Miles
+  $('vin-input').addEventListener('input',e=>{let v=e.target.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();if(v!==e.target.value){const p=e.target.selectionStart;e.target.value=v;e.target.setSelectionRange(p,p)}if(vinTimeout)clearTimeout(vinTimeout);if(v.length===17)vinTimeout=setTimeout(()=>decodeVin(v),100);else{D.vehicle=null;$('vehicle-card').innerHTML='';$('vin-status').innerHTML='';checkNav()}});
   $('miles-input').addEventListener('input',()=>checkNav());
-
-  // All step 2 inputs
   ['buyer-name','buyer-address','buyer-city','buyer-state','buyer-zip','buyer-phone','buyer-email','buyer-dl'].forEach(id=>{
-    $(id).addEventListener('input',e=>{
-      // Auto-uppercase for text fields
-      if(!['buyer-phone','buyer-email'].includes(id) && e.target.type!=='email'){
-        const pos=e.target.selectionStart;
-        e.target.value=e.target.value.toUpperCase();
-        e.target.setSelectionRange(pos,pos);
-      }
-      // Zip → county detection
-      if(id==='buyer-zip'){
-        const z=e.target.value;
-        if(z.length>=3){
-          const county=ZIP_MAP[z.substring(0,3)];
-          if(county){
-            D.county=county;
-            $('tax-county').value=county;
-            $('county-badge').innerHTML=`County detected: <strong>${county}</strong> · Tax rate: ${((CA_TAX[county]||0.0775)*100).toFixed(2)}%`;
-            show('county-badge',true);
-          }else{show('county-badge',false);}
-        }else{show('county-badge',false);}
-      }
-      checkNav();
-    });
-  });
-
-  // Sale price + county
-  $('sale-price').addEventListener('input',()=>{updateFees();checkNav();});
-  $('tax-county').addEventListener('change',()=>{D.county=$('tax-county').value;updateFees();});
+    $(id).addEventListener('input',e=>{if(!['buyer-phone','buyer-email'].includes(id)&&e.target.type!=='email'){const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)}
+    if(id==='buyer-zip'){const z=e.target.value;if(z.length>=3){const county=ZIP_MAP[z.substring(0,3)];if(county){D.county=county;$('tax-county').value=county;$('county-badge').innerHTML=`County detected: <strong>${county}</strong> · Tax rate: ${((CA_TAX[county]||0.0775)*100).toFixed(2)}%`;show('county-badge',true)}else show('county-badge',false)}else show('county-badge',false)}checkNav()})});
+  $('sale-price').addEventListener('input',()=>{updateFees();checkNav()});
+  $('tax-county').addEventListener('change',()=>{D.county=$('tax-county').value;updateFees()});
 });
 </script>
 </body>
