@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NUVO Deal Engine</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'SF Pro Display', 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(ellipse at top left, #1a2332 0%, #0a0f1a 40%, #000 100%);
+    color: #e5e7eb;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  input::placeholder { color: #374151 !important; }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type=number] { -moz-appearance: textfield; }
+  select option { background: #0f172a; color: #e5e7eb; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(250,204,21,0.1); } 50% { box-shadow: 0 0 30px rgba(250,204,21,0.2); } }
+  .fade-in { animation: fadeUp 0.3s ease-out; }
+
+  .container { max-width: 520px; margin: 0 auto; padding: 16px 16px 40px; }
+
+  /* Header */
+  .hdr { text-align: center; padding: 20px 16px 16px; margin-bottom: 16px; background: radial-gradient(ellipse at top, rgba(250,204,21,0.08) 0%, rgba(15,23,42,0.95) 60%); border-radius: 20px; border: 1px solid rgba(148,163,184,0.2); position: relative; overflow: hidden; }
+  .hdr-glow { position: absolute; top: -60px; left: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(250,204,21,0.12) 0%, transparent 70%); pointer-events: none; }
+  .logo { font-size: 28px; font-weight: 800; letter-spacing: 0.08em; background: linear-gradient(120deg, #fefce8 0%, #facc15 50%, #f97316 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 2px; }
+  .hdr-sub { font-size: 10px; letter-spacing: 0.2em; color: #6b7280; text-transform: uppercase; }
+
+  /* Timer */
+  .timer-bar { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: rgba(15,23,42,0.8); border-radius: 14px; border: 1px solid rgba(148,163,184,0.15); margin-bottom: 16px; }
+  .timer-label { font-size: 10px; color: #6b7280; letter-spacing: 0.15em; text-transform: uppercase; }
+  .timer-val { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+
+  /* Steps */
+  .step-row { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
+  .step-pill { padding: 6px 14px; border-radius: 999px; font-size: 11px; font-weight: 600; transition: all 0.2s; }
+  .step-pill.future { border: 1px solid rgba(148,163,184,0.25); background: rgba(15,23,42,0.6); color: #4b5563; }
+  .step-pill.active { border: 1px solid rgba(250,204,21,0.6); background: rgba(250,204,21,0.1); color: #fef9c3; }
+  .step-pill.done { border: 1px solid #22c55e; background: rgba(34,197,94,0.15); color: #86efac; }
+
+  /* Cards */
+  .card { background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.2); border-radius: 18px; padding: 20px 18px; margin-bottom: 14px; }
+  .card-title { font-size: 11px; font-weight: 700; color: #6b7280; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
+
+  /* Inputs */
+  .input-wrap { margin-bottom: 14px; }
+  .form-label { display: block; font-size: 11px; font-weight: 600; color: #6b7280; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .form-label .hint { font-weight: 400; font-size: 10px; color: #4b5563; text-transform: none; letter-spacing: 0; }
+  .form-input { width: 100%; padding: 12px 14px; background: rgba(8,12,24,0.9); border: 1px solid rgba(148,163,184,0.3); border-radius: 12px; color: #f1f5f9; font-size: 15px; font-weight: 500; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+  .form-input:focus { border-color: #facc15; box-shadow: 0 0 0 2px rgba(250,204,21,0.2); }
+  .form-input.mono { font-family: 'SF Mono', 'Fira Code', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+  .form-input.price { padding-left: 30px; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .form-input.readonly { color: #6b7280; cursor: default; }
+  .form-select { width: 100%; padding: 12px 14px; background: rgba(8,12,24,0.9); border: 1px solid rgba(148,163,184,0.3); border-radius: 12px; color: #f1f5f9; font-size: 15px; font-weight: 500; outline: none; appearance: none; cursor: pointer; }
+  .form-select:focus { border-color: #facc15; box-shadow: 0 0 0 2px rgba(250,204,21,0.2); }
+  .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .input-row-3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; }
+
+  /* Vehicle decoded card */
+  .v-card { background: linear-gradient(135deg, rgba(250,204,21,0.08) 0%, rgba(15,23,42,0.95) 100%); border: 1px solid rgba(250,204,21,0.25); border-radius: 16px; padding: 16px 18px; margin-top: 14px; margin-bottom: 10px; animation: fadeUp 0.3s ease-out; }
+  .v-title { font-size: 20px; font-weight: 800; color: #fefce8; letter-spacing: 0.02em; }
+  .v-sub { font-size: 12px; color: #9ca3af; margin-top: 2px; font-family: monospace; }
+  .v-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .v-chip { padding: 4px 10px; border-radius: 999px; background: rgba(250,204,21,0.1); border: 1px solid rgba(250,204,21,0.2); font-size: 10px; font-weight: 600; color: #fde68a; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Buttons */
+  .deal-btns { display: flex; gap: 10px; }
+  .deal-btn { flex: 1; padding: 22px 10px; border: none; border-radius: 18px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+  .deal-btn:active { transform: scale(0.97); }
+  .deal-btn.sell { background: linear-gradient(135deg, #166534 0%, #22c55e 100%); }
+  .deal-btn.buy { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+  .deal-btn.consign { background: linear-gradient(135deg, #581c87 0%, #a855f7 100%); }
+  .deal-btn-icon { font-size: 28px; }
+  .deal-btn-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .deal-btn-sub { font-size: 10px; opacity: 0.7; font-weight: 500; }
+
+  .nav-row { display: flex; gap: 10px; margin-top: 20px; }
+  .nav-btn { flex: 1; padding: 14px 16px; border-radius: 14px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; border: none; text-align: center; }
+  .nav-btn.back { background: rgba(15,23,42,0.8); color: #9ca3af; border: 1px solid rgba(148,163,184,0.3); }
+  .nav-btn.next { background: linear-gradient(120deg, #facc15 0%, #f97316 100%); color: #111; }
+  .nav-btn.next:disabled { opacity: 0.4; cursor: not-allowed; }
+  .nav-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+
+  .big-btn { width: 100%; padding: 18px 20px; border: none; border-radius: 16px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 10px 30px rgba(0,0,0,0.4); letter-spacing: 0.04em; }
+  .big-btn:active { transform: scale(0.98); }
+  .big-btn.primary { background: linear-gradient(120deg, #facc15 0%, #f97316 100%); color: #111; }
+  .big-btn.secondary { background: rgba(15,23,42,0.8); color: #9ca3af; border: 1px solid rgba(148,163,184,0.2); margin-top: 10px; }
+
+  /* Summary rows */
+  .summ-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(31,41,55,0.6); }
+  .summ-row:last-child { border-bottom: none; }
+  .summ-label { font-size: 12px; color: #6b7280; }
+  .summ-val { font-size: 13px; font-weight: 600; color: #f1f5f9; }
+  .summ-total { display: flex; justify-content: space-between; padding: 12px 0 4px; margin-top: 4px; }
+  .summ-total-label { font-size: 14px; font-weight: 700; color: #facc15; letter-spacing: 0.06em; text-transform: uppercase; }
+  .summ-total-val { font-size: 20px; font-weight: 800; color: #fefce8; }
+
+  /* Doc checklist */
+  .doc-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(31,41,55,0.4); }
+  .doc-row:last-child { border-bottom: none; }
+  .doc-check { width: 20px; height: 20px; border-radius: 6px; background: rgba(34,197,94,0.2); border: 1px solid #22c55e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+  .doc-name { font-size: 13px; font-weight: 500; color: #e5e7eb; }
+  .doc-form { font-size: 10px; color: #6b7280; margin-left: auto; flex-shrink: 0; }
+
+  /* Misc */
+  .county-badge { margin-bottom: 14px; padding: 6px 12px; border-radius: 10px; background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.15); font-size: 11px; color: #fde68a; }
+  .vin-loading { margin-top: 8px; font-size: 12px; color: #facc15; display: flex; align-items: center; gap: 6px; }
+  .vin-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #facc15; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  .vin-error { margin-top: 8px; font-size: 12px; color: #ef4444; }
+  .cobuyer-toggle { background: none; border: none; color: #facc15; font-size: 12px; font-weight: 600; cursor: pointer; padding: 0; letter-spacing: 0.06em; }
+  .price-symbol { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; font-weight: 700; color: #facc15; }
+  .divider { height: 1px; background: rgba(148,163,184,0.15); margin: 8px 0; }
+  .info-note { padding: 8px 12px; border-radius: 10px; font-size: 11px; }
+  .info-note.blue { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); color: #93c5fd; }
+  .footer { text-align: center; margin-top: 16px; font-size: 10px; color: #374151; }
+  .header-mini { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .header-mini-logo { font-size: 18px; font-weight: 800; background: linear-gradient(120deg, #fefce8, #facc15); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .deal-type-pill { padding: 3px 10px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; }
+  .close-btn { background: rgba(15,23,42,0.8); border: 1px solid rgba(148,163,184,0.25); border-radius: 999px; color: #6b7280; font-size: 18px; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .close-btn:hover { color: #e5e7eb; border-color: #e5e7eb; }
+
+  .completion-banner { text-align: center; padding: 20px 16px; margin-bottom: 16px; border-radius: 18px; }
+  .completion-banner.fast { background: linear-gradient(135deg, rgba(34,197,94,0.15) 0%, rgba(15,23,42,0.95) 100%); border: 1px solid rgba(34,197,94,0.3); }
+  .completion-banner.normal { background: linear-gradient(135deg, rgba(250,204,21,0.1) 0%, rgba(15,23,42,0.95) 100%); border: 1px solid rgba(250,204,21,0.3); }
+
+  .recap-card { background: linear-gradient(135deg, rgba(250,204,21,0.06) 0%, rgba(15,23,42,0.95) 100%); border: 1px solid rgba(250,204,21,0.2); }
+  .recap-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+
+  .mini-vehicle { display: flex; justify-content: space-between; align-items: center; }
+  .dmv-section { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(148,163,184,0.15); }
+  .dmv-label { font-size: 10px; font-weight: 600; color: #4b5563; letter-spacing: 0.12em; margin-bottom: 6px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div id="app" class="container"></div>
+
+<script>
+// ═══════════════════════════════════════════
+// NUVO DEAL ENGINE v1.0
+// NuVo Trade Co. Inc. | Dealer #00104
+// ═══════════════════════════════════════════
+
+const DEALER = {
+  name: "NuVo Trade Co. Inc.",
+  address: "1560 Superior Ave Ste B3",
+  city: "Costa Mesa", state: "CA", zip: "92627",
+  phone: "(949) 887-1323", fax: "(949) 610-7808",
+  email: "support@nuvotrade.com",
+  dealer_no: "00104", seller_permit: "249963776",
+  doc_fee: 95.00, smog_fee: 50.00
+};
+
+const CA_TAX_RATES = {
+  "Los Angeles": 0.095, "Orange": 0.0775, "San Diego": 0.0775,
+  "San Bernardino": 0.0775, "Riverside": 0.0775, "Ventura": 0.0725,
+  "Sacramento": 0.0875, "San Francisco": 0.08625, "Santa Clara": 0.09125,
+  "Alameda": 0.1025, "Kern": 0.0825, "Fresno": 0.08475,
+  "San Joaquin": 0.09, "Contra Costa": 0.0925, "Imperial": 0.0875, "Other": 0.0775
+};
+
+const ZIP_COUNTY = {
+  "900":"Los Angeles","901":"Los Angeles","902":"Los Angeles","903":"Los Angeles",
+  "904":"Los Angeles","905":"Los Angeles","906":"Los Angeles","907":"Los Angeles",
+  "908":"Los Angeles","910":"Los Angeles","911":"Los Angeles","912":"Los Angeles",
+  "913":"Los Angeles","914":"Los Angeles","915":"Los Angeles","916":"Los Angeles",
+  "917":"Los Angeles","918":"Los Angeles",
+  "920":"San Diego","921":"San Diego",
+  "922":"San Bernardino","923":"San Bernardino","924":"San Bernardino","925":"San Bernardino",
+  "926":"Orange","927":"Orange","928":"Orange",
+  "930":"Ventura","931":"Ventura",
+  "935":"San Joaquin","936":"Fresno",
+  "940":"San Francisco","941":"San Francisco",
+  "942":"Sacramento","943":"Sacramento",
+  "944":"San Francisco","945":"Alameda","946":"Alameda","947":"Alameda",
+  "950":"Santa Clara","951":"Riverside"
+};
+
+// ═══ STATE ═══
+let state = {
+  step: 0, dealType: null, timerStart: null, elapsed: 0, dealComplete: false,
+  vin: "", vinLoading: false, vinError: null, vehicle: null, miles: "",
+  buyer: { name:"", cobuyer:"", address:"", city:"", state:"CA", zip:"", county:"", phone:"", email:"", dl:"" },
+  showCobuyer: false, salePrice: "", taxCounty: "Orange", dealCalc: null
+};
+let timerInterval = null;
+
+function setState(updates) {
+  Object.assign(state, typeof updates === 'function' ? updates(state) : updates);
+  render();
+}
+
+function fmt(n) {
+  if (n === undefined || n === null || isNaN(n)) return "$0.00";
+  return "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function calcDMVFees(price) {
+  const vlf = Math.round(price * 0.0065 * 100) / 100;
+  let tif = price <= 4999 ? 0 : price <= 24999 ? 25 : price <= 34999 ? 50 : price <= 59999 ? 100 : 175;
+  const fees = { vlf, baseReg: 65, titleTransfer: 15, smogAbatement: 20, chpFee: 30, tif };
+  fees.total = Math.round((vlf + 65 + 15 + 20 + 30 + tif) * 100) / 100;
+  return fees;
+}
+
+function calcDeal(salePrice, county) {
+  const price = parseFloat(salePrice) || 0;
+  const taxRate = CA_TAX_RATES[county] || 0.0775;
+  const tax = Math.round(price * taxRate * 100) / 100;
+  const dmv = calcDMVFees(price);
+  const subtotal = price + DEALER.doc_fee + DEALER.smog_fee + tax;
+  return { salePrice: price, docFee: DEALER.doc_fee, smogFee: DEALER.smog_fee, salesTax: tax, taxRate, dmvFees: dmv,
+    subtotal: Math.round(subtotal * 100) / 100, totalDue: Math.round((subtotal + dmv.total) * 100) / 100 };
+}
+
+function getDocList(dealType, price) {
+  const docs = [];
+  if (dealType === "sell") {
+    docs.push({n:"eSign Consent", f:"E-SIGN Act"});
+    docs.push({n:"Deal Summary / Buyer's Order", f:"DealSummary"});
+    docs.push({n:"Retail Installment Contract", f:"LAW 553-CA-ARB"});
+    docs.push({n:"REG 262 Transfer & Bill of Sale", f:"REG 262"});
+    docs.push({n:"FTC Buyers Guide (As-Is)", f:"Buyers Guide"});
+    docs.push({n:"Due Bill", f:"DC-DB01"});
+    docs.push({n:"Agreement to Furnish Insurance", f:"DC-ATF01"});
+    if (price < 40000) docs.push({n:"Contract Cancellation Option", f:"CCOA"});
+    docs.push({n:"Privacy Notice", f:"PVN001"});
+    docs.push({n:"REG 51 Report of Sale", f:"REG 51"});
+  } else if (dealType === "buy") {
+    docs.push({n:"Purchase Agreement", f:"Custom"});
+    docs.push({n:"REG 262 Transfer & Bill of Sale", f:"REG 262"});
+    docs.push({n:"Odometer Disclosure", f:"REG 262 §3"});
+    docs.push({n:"Power of Attorney", f:"REG 262 §5"});
+  } else {
+    docs.push({n:"Consignment Agreement", f:"Custom"});
+    docs.push({n:"eSign Consent", f:"E-SIGN Act"});
+    docs.push({n:"Privacy Notice", f:"PVN001"});
+  }
+  return docs;
+}
+
+function timerDisplay() {
+  const m = Math.floor(state.elapsed / 60);
+  const s = state.elapsed % 60;
+  return `${m}:${String(s).padStart(2,'0')}`;
+}
+
+function timerColor() { return state.elapsed < 120 ? "#22c55e" : state.elapsed < 180 ? "#facc15" : "#ef4444"; }
+
+// ═══ VIN DECODE ═══
+async function decodeVin(vin) {
+  if (vin.length !== 17) { setState({ vinError: "VIN must be 17 characters" }); return; }
+  setState({ vinLoading: true, vinError: null, vehicle: null });
+  try {
+    const r = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`);
+    const data = await r.json();
+    const get = (name) => { const i = data.Results?.find(x => x.Variable === name); return i?.Value && i.Value !== "Not Applicable" && i.Value !== "" ? i.Value : null; };
+    const year = get("Model Year"), make = get("Make"), model = get("Model");
+    if (!year || !make) { setState({ vinError: "Could not decode VIN", vinLoading: false }); return; }
+    setState({ vehicle: { vin: vin.toUpperCase(), year, make: make.toUpperCase(), model: (model||"").toUpperCase(),
+      body: get("Body Class")||"", engine: get("Displacement (L)") ? get("Displacement (L)")+"L" : "",
+      cylinders: get("Engine Number of Cylinders")||"", drive: get("Drive Type")||"",
+      fuel: get("Fuel Type - Primary")||"", trim: get("Trim")||"" }, vinLoading: false });
+  } catch { setState({ vinError: "Network error", vinLoading: false }); }
+}
+
+// ═══ ACTIONS ═══
+function startDeal(type) {
+  setState({ dealType: type, timerStart: Date.now(), step: 1, elapsed: 0 });
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (!state.dealComplete) { state.elapsed = Math.floor((Date.now() - state.timerStart) / 1000); render(); }
+    else clearInterval(timerInterval);
+  }, 1000);
+}
+
+function resetDeal() {
+  if (timerInterval) clearInterval(timerInterval);
+  state = { step:0, dealType:null, timerStart:null, elapsed:0, dealComplete:false,
+    vin:"", vinLoading:false, vinError:null, vehicle:null, miles:"",
+    buyer:{name:"",cobuyer:"",address:"",city:"",state:"CA",zip:"",county:"",phone:"",email:"",dl:""},
+    showCobuyer:false, salePrice:"", taxCounty:"Orange", dealCalc:null };
+  render();
+}
+
+function canProceed() {
+  if (state.step === 1) return state.vehicle && state.miles;
+  if (state.step === 2) return state.buyer.name && state.buyer.address && state.buyer.city && state.buyer.zip && state.buyer.phone && state.buyer.email;
+  if (state.step === 3) return state.salePrice && parseFloat(state.salePrice) > 0;
+  return true;
+}
+
+function completeDeal() {
+  state.dealCalc = calcDeal(state.salePrice, state.taxCounty);
+  setState({ dealComplete: true, step: 4 });
+}
+
+// ═══ RENDER ═══
+function render() {
+  const app = document.getElementById('app');
+  if (state.step === 0) { app.innerHTML = renderHome(); return; }
+  app.innerHTML = renderDeal();
+}
+
+function renderHome() {
+  return `
+    <div class="hdr">
+      <div class="hdr-glow"></div>
+      <div style="position:relative;z-index:1">
+        <div class="logo">NUVO</div>
+        <div class="hdr-sub">Deal Engine · Dealer #00104</div>
+        <div style="margin-top:12px;font-size:11px;color:#4b5563">
+          Close a deal in under <span style="color:#facc15;font-weight:700">3 minutes</span>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="padding:14px 14px 18px">
+      <div class="card-title">Start a Deal</div>
+      <div class="deal-btns">
+        <button class="deal-btn sell" onclick="startDeal('sell')">
+          <div class="deal-btn-icon">🏷️</div>
+          <div class="deal-btn-label" style="color:#f0fdf4">Sell</div>
+          <div class="deal-btn-sub" style="color:#bbf7d0">Retail / Wholesale</div>
+        </button>
+        <button class="deal-btn buy" onclick="startDeal('buy')">
+          <div class="deal-btn-icon">🔑</div>
+          <div class="deal-btn-label" style="color:#eff6ff">Buy</div>
+          <div class="deal-btn-sub" style="color:#bfdbfe">Acquisition</div>
+        </button>
+        <button class="deal-btn consign" onclick="startDeal('consign')">
+          <div class="deal-btn-icon">🤝</div>
+          <div class="deal-btn-label" style="color:#faf5ff">Consign</div>
+          <div class="deal-btn-sub" style="color:#e9d5ff">Net to Seller</div>
+        </button>
+      </div>
+    </div>
+    <div class="footer">${DEALER.name} · ${DEALER.address}, ${DEALER.city}, ${DEALER.state} ${DEALER.zip}</div>`;
+}
+
+function renderDeal() {
+  const colors = {sell:"#22c55e", buy:"#3b82f6", consign:"#a855f7"};
+  const labels = {sell:"SELLING", buy:"BUYING", consign:"CONSIGNMENT"};
+  const stepNames = state.dealType==="sell" ? ["Vehicle","Buyer","Numbers","Packet"] :
+                    state.dealType==="buy" ? ["Vehicle","Seller","Numbers","Packet"] :
+                    ["Vehicle","Owner","Terms","Packet"];
+  const c = colors[state.dealType];
+
+  let html = `
+    <div class="header-mini">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="header-mini-logo">NUVO</div>
+        <div class="deal-type-pill" style="background:${c}22;border:1px solid ${c}55;color:${c}">${labels[state.dealType]}</div>
+      </div>
+      <button class="close-btn" onclick="resetDeal()">✕</button>
+    </div>
+    <div class="timer-bar">
+      <div><div class="timer-label">Deal Timer</div><div class="timer-val" style="color:${timerColor()}">${timerDisplay()}</div></div>
+      <div style="text-align:right"><div class="timer-label">Target</div><div style="font-size:14px;font-weight:600;color:#374151">3:00</div></div>
+    </div>`;
+
+  if (state.step < 4) {
+    html += `<div class="step-row">${stepNames.map((n,i) =>
+      `<div class="step-pill ${state.step > i+1 ? 'done' : state.step === i+1 ? 'active' : 'future'}">${state.step > i+1 ? '✓ ' : ''}${n}</div>`
+    ).join('')}</div>`;
+  }
+
+  if (state.step === 1) html += renderStep1(stepNames);
+  if (state.step === 2) html += renderStep2();
+  if (state.step === 3) html += renderStep3();
+  if (state.step === 4) html += renderStep4();
+
+  return html;
+}
+
+function renderStep1(stepNames) {
+  const v = state.vehicle;
+  let vehicleCard = '';
+  if (v) {
+    const chips = [v.body, v.engine && `${v.engine} ${v.cylinders ? v.cylinders+'cyl':''}`, v.drive, v.fuel, v.trim]
+      .filter(Boolean).map(c => `<span class="v-chip">${c}</span>`).join('');
+    vehicleCard = `<div class="v-card"><div class="v-title">${v.year} ${v.make} ${v.model}</div>
+      <div class="v-sub">${v.vin}</div><div class="v-chips">${chips}</div></div>`;
+  }
+  return `<div class="card fade-in">
+    <div class="card-title">Vehicle Identification</div>
+    <div class="input-wrap">
+      <label class="form-label">VIN <span class="hint">17 characters</span></label>
+      <input class="form-input mono" value="${state.vin}" maxlength="17" placeholder="e.g. WP0AB2A99JS123065"
+        oninput="handleVinInput(this.value)">
+      ${state.vinLoading ? '<div class="vin-loading"><span class="vin-spinner"></span>Decoding VIN...</div>' : ''}
+      ${state.vinError ? `<div class="vin-error">${state.vinError}</div>` : ''}
+    </div>
+    ${vehicleCard}
+    <div class="input-wrap">
+      <label class="form-label">Odometer (Miles)</label>
+      <input class="form-input" type="number" value="${state.miles}" placeholder="e.g. 23919"
+        oninput="setState({miles: this.value})">
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="nav-btn back" onclick="resetDeal()">Cancel</button>
+    <button class="nav-btn next" ${!canProceed()?'disabled':''} onclick="setState({step:2})">Next → ${state.dealType==='sell'?'Buyer':state.dealType==='buy'?'Seller':'Owner'}</button>
+  </div>`;
+}
+
+function renderStep2() {
+  const partyLabel = state.dealType==='sell' ? 'Buyer' : state.dealType==='buy' ? 'Seller' : 'Owner';
+  const b = state.buyer;
+  return `<div class="card fade-in">
+    <div class="card-title">${partyLabel} Information</div>
+    <div class="input-wrap">
+      <label class="form-label">${partyLabel} Full Name</label>
+      <input class="form-input" value="${b.name}" placeholder="FIRST MIDDLE LAST" oninput="updateBuyer('name', this.value.toUpperCase())">
+    </div>
+    ${state.dealType==='sell' ? `<div style="margin-bottom:14px">
+      <button class="cobuyer-toggle" onclick="setState({showCobuyer:!state.showCobuyer})">${state.showCobuyer?'− Remove Co-Buyer':'+ Add Co-Buyer'}</button>
+      ${state.showCobuyer ? `<div style="margin-top:8px"><input class="form-input" value="${b.cobuyer}" placeholder="CO-BUYER FULL NAME" oninput="updateBuyer('cobuyer', this.value.toUpperCase())"></div>` : ''}
+    </div>` : ''}
+    <div class="input-wrap">
+      <label class="form-label">Street Address</label>
+      <input class="form-input" value="${b.address}" placeholder="12345 ELM ST" oninput="updateBuyer('address', this.value.toUpperCase())">
+    </div>
+    <div class="input-row-3">
+      <div class="input-wrap"><label class="form-label">City</label><input class="form-input" value="${b.city}" placeholder="COSTA MESA" oninput="updateBuyer('city', this.value.toUpperCase())"></div>
+      <div class="input-wrap"><label class="form-label">State</label><input class="form-input" value="${b.state}" maxlength="2" oninput="updateBuyer('state', this.value.toUpperCase())"></div>
+      <div class="input-wrap"><label class="form-label">Zip</label><input class="form-input" value="${b.zip}" maxlength="5" placeholder="92627" oninput="handleZip(this.value)"></div>
+    </div>
+    ${b.county ? `<div class="county-badge">County detected: <strong>${b.county}</strong> · Tax rate: ${((CA_TAX_RATES[b.county]||0.0775)*100).toFixed(2)}%</div>` : ''}
+    <div class="input-row">
+      <div class="input-wrap"><label class="form-label">Phone</label><input class="form-input" value="${b.phone}" placeholder="(949) 888-8888" type="tel" oninput="updateBuyer('phone', this.value)"></div>
+      <div class="input-wrap"><label class="form-label">Email</label><input class="form-input" value="${b.email}" placeholder="buyer@email.com" type="email" oninput="updateBuyer('email', this.value.toUpperCase())"></div>
+    </div>
+    <div class="input-wrap">
+      <label class="form-label">Driver License # <span class="hint">optional</span></label>
+      <input class="form-input" value="${b.dl}" placeholder="D1234567" oninput="updateBuyer('dl', this.value.toUpperCase())">
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="nav-btn back" onclick="setState({step:1})">← Back</button>
+    <button class="nav-btn next" ${!canProceed()?'disabled':''} onclick="setState({step:3})">Next → Numbers</button>
+  </div>`;
+}
+
+function renderStep3() {
+  const v = state.vehicle;
+  state.dealCalc = state.salePrice ? calcDeal(state.salePrice, state.taxCounty) : null;
+  const dc = state.dealCalc;
+  const countyOpts = Object.keys(CA_TAX_RATES).map(c => `<option value="${c}" ${c===state.taxCounty?'selected':''}>${c} (${(CA_TAX_RATES[c]*100).toFixed(2)}%)</option>`).join('');
+
+  let feesHtml = '';
+  if (dc) {
+    feesHtml = `<div class="card fade-in">
+      <div class="card-title">Fee Breakdown</div>
+      <div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
+      <div class="summ-row"><span class="summ-label">Doc Fee</span><span class="summ-val">${fmt(dc.docFee)}</span></div>
+      <div class="summ-row"><span class="summ-label">Smog Certification</span><span class="summ-val">${fmt(dc.smogFee)}</span></div>
+      <div class="summ-row"><span class="summ-label">Sales Tax (${(dc.taxRate*100).toFixed(2)}%)</span><span class="summ-val">${fmt(dc.salesTax)}</span></div>
+      <div class="summ-row" style="border-bottom:none"><span class="summ-label">Subtotal</span><span class="summ-val" style="color:#facc15">${fmt(dc.subtotal)}</span></div>
+      <div class="dmv-section">
+        <div class="dmv-label">DMV Fees (Estimated)</div>
+        <div class="summ-row"><span class="summ-label">Vehicle License Fee</span><span class="summ-val">${fmt(dc.dmvFees.vlf)}</span></div>
+        <div class="summ-row"><span class="summ-label">Base Registration</span><span class="summ-val">${fmt(dc.dmvFees.baseReg)}</span></div>
+        <div class="summ-row"><span class="summ-label">Title Transfer</span><span class="summ-val">${fmt(dc.dmvFees.titleTransfer)}</span></div>
+        <div class="summ-row"><span class="summ-label">Trans. Improvement Fee</span><span class="summ-val">${fmt(dc.dmvFees.tif)}</span></div>
+        <div class="summ-row"><span class="summ-label">Smog Abatement</span><span class="summ-val">${fmt(dc.dmvFees.smogAbatement)}</span></div>
+        <div class="summ-row" style="border-bottom:none"><span class="summ-label">CHP Fee</span><span class="summ-val">${fmt(dc.dmvFees.chpFee)}</span></div>
+      </div>
+      <div class="summ-total"><span class="summ-total-label">Total Due</span><span class="summ-total-val">${fmt(dc.totalDue)}</span></div>
+    </div>`;
+  }
+
+  return `${v ? `<div class="card fade-in" style="padding:12px 16px">
+    <div class="mini-vehicle">
+      <div><div style="font-size:15px;font-weight:700;color:#fefce8">${v.year} ${v.make} ${v.model}</div>
+        <div style="font-size:11px;color:#6b7280">${v.vin} · ${parseInt(state.miles).toLocaleString()} mi</div></div>
+      <div style="font-size:11px;color:#6b7280">→ ${state.buyer.name.split(' ')[0]}</div>
+    </div></div>` : ''}
+  <div class="card fade-in">
+    <div class="card-title">Deal Numbers</div>
+    <div class="input-wrap">
+      <label class="form-label">Selling Price</label>
+      <div style="position:relative"><span class="price-symbol">$</span>
+        <input class="form-input price" type="number" value="${state.salePrice}" placeholder="0.00" oninput="setState({salePrice:this.value})">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="input-wrap"><label class="form-label">Tax County</label>
+        <select class="form-select" onchange="setState({taxCounty:this.value})">${countyOpts}</select></div>
+      <div class="input-wrap"><label class="form-label">Doc Fee</label>
+        <input class="form-input readonly" value="${fmt(DEALER.doc_fee)}" readonly></div>
+    </div>
+  </div>
+  ${feesHtml}
+  <div class="nav-row">
+    <button class="nav-btn back" onclick="setState({step:2})">← Back</button>
+    <button class="nav-btn next" ${!canProceed()?'disabled':''} onclick="completeDeal()">Generate Packet →</button>
+  </div>`;
+}
+
+function renderStep4() {
+  const v = state.vehicle, dc = state.dealCalc, b = state.buyer;
+  const fast = state.elapsed <= 180;
+  const docs = getDocList(state.dealType, dc.salePrice);
+
+  return `
+    <div class="completion-banner ${fast?'fast':'normal'} fade-in">
+      <div style="font-size:36px;margin-bottom:4px">${fast?'⚡':'✅'}</div>
+      <div style="font-size:18px;font-weight:800;color:${fast?'#86efac':'#fde68a'}">${fast?'DEAL CLOSED UNDER 3 MIN':'DEAL COMPLETE'}</div>
+      <div style="font-size:28px;font-weight:800;color:${timerColor()};margin-top:4px">${timerDisplay()}</div>
+    </div>
+    <div class="card recap-card fade-in">
+      <div class="recap-header">
+        <div><div style="font-size:18px;font-weight:800;color:#fefce8">${v.year} ${v.make} ${v.model}</div>
+          <div style="font-size:11px;color:#6b7280;font-family:monospace">${v.vin}</div></div>
+        <div style="text-align:right"><div style="font-size:20px;font-weight:800;color:#facc15">${fmt(dc.totalDue)}</div>
+          <div style="font-size:10px;color:#6b7280">TOTAL DUE</div></div>
+      </div>
+      <div class="divider"></div>
+      <div class="summ-row"><span class="summ-label">${state.dealType==='sell'?'Buyer':'Seller'}</span><span class="summ-val">${b.name}</span></div>
+      ${b.cobuyer ? `<div class="summ-row"><span class="summ-label">Co-Buyer</span><span class="summ-val">${b.cobuyer}</span></div>` : ''}
+      <div class="summ-row"><span class="summ-label">Address</span><span class="summ-val">${b.address}, ${b.city}</span></div>
+      <div class="summ-row"><span class="summ-label">Miles</span><span class="summ-val">${parseInt(state.miles).toLocaleString()}</span></div>
+      <div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
+      <div class="summ-row"><span class="summ-label">Tax (${(dc.taxRate*100).toFixed(2)}%)</span><span class="summ-val">${fmt(dc.salesTax)}</span></div>
+      <div class="summ-row"><span class="summ-label">Doc + Smog</span><span class="summ-val">${fmt(dc.docFee + dc.smogFee)}</span></div>
+      <div class="summ-row" style="border-bottom:none"><span class="summ-label">DMV Fees*</span><span class="summ-val">${fmt(dc.dmvFees.total)}</span></div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-title">Document Packet · ${docs.length} Forms</div>
+      ${docs.map(d => `<div class="doc-row"><div class="doc-check">✓</div><span class="doc-name">${d.n}</span><span class="doc-form">${d.f}</span></div>`).join('')}
+      ${dc.salePrice >= 40000 && state.dealType==='sell' ? '<div class="info-note blue" style="margin-top:10px">CCOA not required — sale price exceeds $40,000</div>' : ''}
+    </div>
+    <button class="big-btn primary" onclick="alert('PDF generation → DocuSign routing coming in Phase 2')">📄 Generate PDF Packet</button>
+    <button class="big-btn secondary" onclick="resetDeal()">Start New Deal</button>
+    <div class="footer" style="margin-top:16px">* DMV fees are estimated · ${DEALER.name} · Dealer #${DEALER.dealer_no}</div>`;
+}
+
+// ═══ HELPERS ═══
+function handleVinInput(val) {
+  const v = val.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+  state.vin = v; state.vinError = null;
+  if (v.length === 17) { render(); decodeVin(v); } else { state.vehicle = null; render(); }
+}
+
+function updateBuyer(key, val) { state.buyer[key] = val; render(); }
+
+function handleZip(val) {
+  state.buyer.zip = val;
+  if (val.length >= 3) {
+    const county = ZIP_COUNTY[val.substring(0,3)];
+    if (county) { state.buyer.county = county; state.taxCounty = county; }
+  }
+  render();
+}
+
+// ═══ INIT ═══
+render();
+</script>
+</body>
+</html>
