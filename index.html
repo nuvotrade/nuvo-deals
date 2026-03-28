@@ -238,7 +238,7 @@ textarea{font-family:inherit}
 
 const DLR={name:"NuVo Trade Co. Inc.",address:"1560 Superior Ave Ste B3",city:"Costa Mesa",state:"CA",zip:"92627",phone:"(949) 887-1323",fax:"(949) 610-7808",email:"support@nuvotrade.com",no:"00104",permit:"249963776",doc:95,smog:50};
 const DS_WORKER="https://nuvo-docusign.yulgutierrez.workers.dev";
-const CA_TAX={"Los Angeles":0.095,"Orange":0.0775,"San Diego":0.0775,"San Bernardino":0.0775,"Riverside":0.0775,"Ventura":0.0725,"Sacramento":0.0875,"San Francisco":0.08625,"Santa Clara":0.09125,"Alameda":0.1025,"Kern":0.0825,"Fresno":0.08475,"San Joaquin":0.09,"Contra Costa":0.0925,"Imperial":0.0875,"Other":0.0775};
+const CA_TAX={"Los Angeles":0.095,"Orange":0.0775,"San Diego":0.0775,"San Bernardino":0.0775,"Riverside":0.0775,"Ventura":0.0725,"Sacramento":0.0875,"San Francisco":0.08625,"Santa Clara":0.09125,"Alameda":0.1025,"Kern":0.0825,"Fresno":0.08475,"San Joaquin":0.09,"Contra Costa":0.0925,"Imperial":0.0875,"Out of State":0,"Other CA County":0.0775};
 const ZIP_MAP={"900":"Los Angeles","901":"Los Angeles","902":"Los Angeles","903":"Los Angeles","904":"Los Angeles","905":"Los Angeles","906":"Los Angeles","907":"Los Angeles","908":"Los Angeles","910":"Los Angeles","911":"Los Angeles","912":"Los Angeles","913":"Los Angeles","914":"Los Angeles","915":"Los Angeles","916":"Los Angeles","917":"Los Angeles","918":"Los Angeles","920":"San Diego","921":"San Diego","922":"San Bernardino","923":"San Bernardino","924":"San Bernardino","925":"San Bernardino","926":"Orange","927":"Orange","928":"Orange","930":"Ventura","931":"Ventura","935":"San Joaquin","936":"Fresno","940":"San Francisco","941":"San Francisco","942":"Sacramento","943":"Sacramento","944":"San Francisco","945":"Alameda","946":"Alameda","947":"Alameda","950":"Santa Clara","951":"Riverside"};
 
 let D={step:0,type:null,start:null,elapsed:0,done:false,vehicle:null,showCobuyer:false,county:"Orange",dealCalc:null,filledPDFs:null};
@@ -280,7 +280,7 @@ async function fillSalesPacket(data){
   const existing=await fetch(url);
   if(!existing.ok) throw new Error('Template not found at '+url+'. Upload packet-template.pdf to /templates/ in your repo.');
   const pdfBytes=await existing.arrayBuffer();
-  const pdfDoc=await PDFLib.PDFDocument.load(pdfBytes);
+  const pdfDoc=await PDFLib.PDFDocument.load(pdfBytes,{ignoreEncryption:true});
   const form=pdfDoc.getForm();
 
   const set=(name,val)=>{try{const f=form.getTextField(name);f.setText(String(val||''));}catch(e){}};
@@ -348,7 +348,7 @@ async function fillREG262(data){
   const existing=await fetch(url);
   if(!existing.ok) throw new Error('Template not found at '+url);
   const pdfBytes=await existing.arrayBuffer();
-  const pdfDoc=await PDFLib.PDFDocument.load(pdfBytes);
+  const pdfDoc=await PDFLib.PDFDocument.load(pdfBytes,{ignoreEncryption:true});
   const form=pdfDoc.getForm();
 
   const set=(name,val)=>{try{form.getTextField(name).setText(String(val||''));}catch(e){}};
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   $('miles-input').addEventListener('input',()=>checkNav());
   ['buyer-name','buyer-address','buyer-city','buyer-state','buyer-zip','buyer-phone','buyer-email','buyer-dl'].forEach(id=>{
     $(id).addEventListener('input',e=>{if(!['buyer-phone','buyer-email'].includes(id)&&e.target.type!=='email'){const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)}
-    if(id==='buyer-zip'){const z=e.target.value;if(z.length>=3){const c=ZIP_MAP[z.substring(0,3)];if(c){D.county=c;$('tax-county').value=c;$('county-badge').innerHTML=`County: <strong>${c}</strong> · Tax: ${((CA_TAX[c]||0.0775)*100).toFixed(2)}%`;show('county-badge',true)}else show('county-badge',false)}else show('county-badge',false)}checkNav()})});
+    if(id==='buyer-zip'){const z=e.target.value;if(z.length>=3){const c=ZIP_MAP[z.substring(0,3)];if(c){D.county=c;$('tax-county').value=c;$('county-badge').innerHTML=`County: <strong>${c}</strong> · Tax: ${((CA_TAX[c]||0.0775)*100).toFixed(2)}%`;show('county-badge',true)}else{const prefix=parseInt(z.substring(0,3));if(prefix<900||prefix>961){D.county='Out of State';$('tax-county').value='Out of State';$('county-badge').innerHTML=`<strong>Out of State</strong> · Tax: 0.00%`;show('county-badge',true)}else{show('county-badge',false)}}}else show('county-badge',false)}checkNav()})});
   $('sale-price').addEventListener('input',()=>{updateFees();checkNav()});
   $('tax-county').addEventListener('change',()=>{D.county=$('tax-county').value;updateFees()});
 });
