@@ -338,8 +338,8 @@ async function fillSalesPacket(data){
   // CCOA
   set('Restocking','500.00');set('Cancellation Option Purchase Price','250.00');
 
-  // Flatten to prevent editing
-  form.flatten();
+  // Flatten text fields only (skip signature fields which cause errors)
+  try{form.getFields().forEach(f=>{try{if(f.constructor.name!=='PDFSignature')f.enableReadOnly();}catch(e){}});}catch(e){}
   return await pdfDoc.save();
 }
 
@@ -359,7 +359,7 @@ async function fillREG262(data){
   set('1eSignSalePrice',dc.salePrice.toFixed(2));
   set('1eSignOwnerName',b.name);set('1eSignAttorneyName',DLR.name);
 
-  form.flatten();
+  try{form.getFields().forEach(f=>{try{f.enableReadOnly();}catch(e){}});}catch(e){}
   return await pdfDoc.save();
 }
 
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   $('miles-input').addEventListener('input',()=>checkNav());
   ['buyer-name','buyer-address','buyer-city','buyer-state','buyer-zip','buyer-phone','buyer-email','buyer-dl'].forEach(id=>{
     $(id).addEventListener('input',e=>{if(!['buyer-phone','buyer-email'].includes(id)&&e.target.type!=='email'){const p=e.target.selectionStart;e.target.value=e.target.value.toUpperCase();e.target.setSelectionRange(p,p)}
-    if(id==='buyer-zip'){const z=e.target.value;if(z.length>=3){const c=ZIP_MAP[z.substring(0,3)];if(c){D.county=c;$('tax-county').value=c;$('county-badge').innerHTML=`County: <strong>${c}</strong> · Tax: ${((CA_TAX[c]||0.0775)*100).toFixed(2)}%`;show('county-badge',true)}else{const prefix=parseInt(z.substring(0,3));if(prefix<900||prefix>961){D.county='Out of State';$('tax-county').value='Out of State';$('county-badge').innerHTML=`<strong>Out of State</strong> · Tax: 0.00%`;show('county-badge',true)}else{show('county-badge',false)}}}else show('county-badge',false)}checkNav()})});
+    if(id==='buyer-zip'){const z=e.target.value;if(z.length>=3){const c=ZIP_MAP[z.substring(0,3)];if(c){D.county=c;$('tax-county').value=c;$('county-badge').innerHTML=`County: <strong>${c}</strong> · Tax: ${((CA_TAX[c]||0.0775)*100).toFixed(2)}%`;show('county-badge',true);updateFees()}else{const prefix=parseInt(z.substring(0,3));if(prefix<900||prefix>961){D.county='Out of State';$('tax-county').value='Out of State';$('county-badge').innerHTML=`<strong>Out of State</strong> · Tax: 0.00%`;show('county-badge',true);updateFees()}else{show('county-badge',false)}}}else show('county-badge',false)}checkNav()})});
   $('sale-price').addEventListener('input',()=>{updateFees();checkNav()});
   $('tax-county').addEventListener('change',()=>{D.county=$('tax-county').value;updateFees()});
 });
