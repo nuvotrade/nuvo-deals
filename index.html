@@ -338,9 +338,8 @@ async function fillSalesPacket(data){
   // CCOA
   set('Restocking','500.00');set('Cancellation Option Purchase Price','250.00');
 
-  // Flatten text fields only (skip signature fields which cause errors)
-  try{form.getFields().forEach(f=>{try{if(f.constructor.name!=='PDFSignature')f.enableReadOnly();}catch(e){}});}catch(e){}
-  return await pdfDoc.save();
+  // Save PDF
+  return await pdfDoc.save({updateFieldAppearances:false});
 }
 
 async function fillREG262(data){
@@ -359,8 +358,7 @@ async function fillREG262(data){
   set('1eSignSalePrice',dc.salePrice.toFixed(2));
   set('1eSignOwnerName',b.name);set('1eSignAttorneyName',DLR.name);
 
-  try{form.getFields().forEach(f=>{try{f.enableReadOnly();}catch(e){}});}catch(e){}
-  return await pdfDoc.save();
+  return await pdfDoc.save({updateFieldAppearances:false});
 }
 
 function generateEsignHTML(data){
@@ -548,7 +546,8 @@ function setupStep4(){
 
 function updateFees(){
   const price=parseFloat($('sale-price').value);if(!price||price<=0){show('fee-breakdown',false);return}
-  const county=$('tax-county').value;const dc=calcDeal(price,county);D.dealCalc=dc;show('fee-breakdown',true);
+  const county=D.county||$('tax-county').value||'Orange';$('tax-county').value=county;
+  const dc=calcDeal(price,county);D.dealCalc=dc;show('fee-breakdown',true);
   $('fee-breakdown').innerHTML=`<div class="card-title">Fee Breakdown</div>
 <div class="summ-row"><span class="summ-label">Sale Price</span><span class="summ-val">${fmt(dc.salePrice)}</span></div>
 <div class="summ-row"><span class="summ-label">Doc Fee</span><span class="summ-val">${fmt(dc.docFee)}</span></div>
