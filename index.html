@@ -524,7 +524,7 @@ async function decodeVin(vin){
   catch(e){$('vin-status').innerHTML='<div class="vin-error">Network error</div>'}
 }
 
-function setupStep3(){const v=D.vehicle;if(v){$('vehicle-mini').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:15px;font-weight:700;color:#fefce8">${v.year} ${v.make} ${v.model}</div><div style="font-size:11px;color:#6b7280">${v.vin} · ${parseInt($('miles-input').value||0).toLocaleString()} mi</div></div><div style="font-size:11px;color:#6b7280">→ ${($('buyer-name').value||'').split(' ')[0]}</div></div>`;show('vehicle-mini',true)}updateFees()}
+function setupStep3(){$('tax-county').value=D.county;const v=D.vehicle;if(v){$('vehicle-mini').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:15px;font-weight:700;color:#fefce8">${v.year} ${v.make} ${v.model}</div><div style="font-size:11px;color:#6b7280">${v.vin} · ${parseInt($('miles-input').value||0).toLocaleString()} mi</div></div><div style="font-size:11px;color:#6b7280">→ ${($('buyer-name').value||'').split(' ')[0]}</div></div>`;show('vehicle-mini',true)}updateFees()}
 
 function setupStep4(){
   D.done=true;if(timer)clearInterval(timer);
