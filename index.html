@@ -537,7 +537,7 @@ function openDocsWindow(d,title,autoPrint){
 <style>body{font:11px Arial;background:#f5f5f5;margin:0;padding:20px}
 .doc-page{background:#fff;max-width:800px;margin:0 auto 30px;padding:30px;box-shadow:0 2px 15px rgba(0,0,0,0.12);page-break-after:always}
 .doc-divider{text-align:center;font-size:12px;font-weight:700;color:#666;padding:10px 0;text-transform:uppercase;letter-spacing:2px}
-@media print{body{background:#fff;padding:0}.doc-page{box-shadow:none;margin:0;padding:20px}.doc-divider{page-break-before:always}}</style></head><body>`;
+@page{size:portrait;margin:0.4in}@media print{body{background:#fff;padding:0}.doc-page{box-shadow:none;margin:0;padding:20px}.doc-divider{page-break-before:always}}</style></head><body>`;
   docs.forEach((doc,i)=>{
     h+=`${i>0?'<div class="doc-divider">'+doc.name+'</div>':''}
 <div class="doc-page">${doc.html}</div>`;
